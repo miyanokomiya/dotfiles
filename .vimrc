@@ -114,26 +114,8 @@ set whichwrap=b,s,h,l,<,>,[,],~
 " バッファスクロール
 set mouse=a
 
-" auto reload .vimrc
-augroup source-vimrc
-  autocmd!
-  autocmd BufWritePost *vimrc source  | set foldmethod=marker
-  autocmd BufWritePost *gvimrc if has('gui_running') source 
-augroup END
-
-" auto comment off
-augroup auto_comment_off
-  autocmd!
-  autocmd BufEnter * setlocal formatoptions-=r
-  autocmd BufEnter * setlocal formatoptions-=o
-augroup END
-
-" HTML/XML閉じタグ自動補完
-augroup MyXML
-  autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-augroup END
+" :grep後に:cw
+autocmd QuickFixCmdPost *grep* copen
 
 " 編集箇所のカーソルを記憶
 if has("autocmd")
@@ -147,3 +129,10 @@ if has("autocmd")
     \ endif
   augroup END
 endif
+
+"----------------------------------------
+" go用
+"----------------------------------------
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+
