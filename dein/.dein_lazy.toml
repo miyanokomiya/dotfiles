@@ -1,0 +1,10 @@
+[[plugins]] # TOMLのシンタックスハイライト
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # ステータス行を見やすく
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
