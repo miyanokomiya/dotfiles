@@ -1,4 +1,6 @@
 #!/bin/sh
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/dein ~/.cache/dein
+mkdir ~/.cache/dein
+ln -sf ~/dotfiles/dein/.dein.toml ~/.cache/dein/.dein.toml 
+ln -sf ~/dotfiles/dein/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml 
 
