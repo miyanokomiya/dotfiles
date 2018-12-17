@@ -1,23 +1,21 @@
-[[plugins]] # TOMLのシンタックスハイライト
+[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
-
-[[plugins]] # ステータス行を見やすく
-repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
+hook_add = '''
+autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+'''
 
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'

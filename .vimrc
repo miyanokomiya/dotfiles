@@ -137,12 +137,3 @@ if has("autocmd")
   augroup END
 endif
 
-"----------------------------------------
-" go用
-"----------------------------------------
-autocmd FileType go :highlight goErr cterm=bold ctermfg=214
-autocmd FileType go :match goErr /\<err\>/
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-

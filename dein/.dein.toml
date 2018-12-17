@@ -2,14 +2,32 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+      \  'active': {
+      \   'left': [
+      \    ['mode', 'paste'],
+      \    ['readonly', 'filename', 'modified', 'ale'],
+      \    ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+      \   ]
+      \  },
+      \  'component_function': {
+      \   'ale': 'ALEGetStatusLine'
+      \  }
+      \ }
+set noshowmode
+'''
+
+[[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 build = 'bash install.sh'
 hook_add = '''
 set hidden
 let g:LanguageClient_serverCommands = {
-    \ 'vue': ['vls'],
-    \ }
+      \  'vue': ['vls'],
+      \ }
 '''
 
 [[plugins]]
@@ -24,16 +42,30 @@ hook_add = '''
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '⨉'
 let g:ale_sign_warning = '⚠'
-let g:lightline = {
-  \'active': {
-  \  'left': [
-  \    ['mode', 'paste'],
-  \    ['readonly', 'filename', 'modified', 'ale'],
-  \  ]
-  \},
-  \'component_function': {
-  \  'ale': 'ALEGetStatusLine'
-  \}
-\ }
+let g:ale_fixers = {
+      \  'javascript': ['prettier'],
+      \  'python': ['autopep8', 'isort'],
+      \  'markdown': [
+      \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
+      \  ],
+      \ }
+let g:ale_fix_on_save = 1
 '''
 
+[[plugins]]
+repo = 'maximbaz/lightline-ale'
+depends = ['lightline.vim', 'ale']
+hook_add = '''
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+let g:lightline.component_type = {
+      \  'linter_checking': 'left',
+      \  'linter_warnings': 'warning',
+      \  'linter_errors': 'error',
+      \  'linter_ok': 'left',
+      \ }
+'''
