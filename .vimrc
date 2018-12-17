@@ -106,14 +106,20 @@ set number
 set clipboard+=unnamedplus
 " Escの2回押しでハイライト消去
 nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
-" シンタックスハイライト
-syntax on
 " すべての数を10進数として扱う
 set nrformats=
 " 行をまたいで移動
 set whichwrap=b,s,h,l,<,>,[,],~
 " バッファスクロール
 set mouse=a
+
+" インデント
+filetype plugin indent on
+" シンタックスハイライト
+syntax enable
+" not stop completion $ & /
+setlocal iskeyword+=$
+setlocal iskeyword+=-
 
 " :grep後に:cw
 autocmd QuickFixCmdPost *grep* copen

@@ -8,3 +8,19 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
+
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+map <C-n> :NERDTreeToggle<CR>
+'''
