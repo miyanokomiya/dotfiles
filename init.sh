@@ -6,11 +6,14 @@ if [ ! -d ~/.cache/dein ]; then
   sh ./installer.sh  ~/.cache/dein
 fi
 
-ln -snfv ~/dotfiles/.vimrc ~/.vimrc
-mkdir ~/.cache/dein
+mkdir -p ~/.cache/dein
 ln -snfv ~/dotfiles/dein/.dein.toml ~/.cache/dein/.dein.toml 
 ln -snfv ~/dotfiles/dein/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml 
-mkdir ~/.config/nvim
-ln -snfv ~/.vim ~/.config/nvim/
+
+mkdir -p ~/.config/nvim
 ln -snfv ~/.vimrc ~/.config/nvim/init.vim
 
+# set up neovim
+# $ brew install python3
+# $ pip3 install --upgrade neovim
+# $ brew install neovim
