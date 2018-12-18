@@ -14,6 +14,7 @@ mkdir -p ~/.config/nvim
 ln -snfv ~/.vimrc ~/.config/nvim/init.vim
 
 # set up neovim
+# $ sudo mkdir /usr/local/Frameworks
+# $ sudo chown $(whoami):admin /usr/local/Frameworks
 # $ brew install python3
 # $ pip3 install --upgrade neovim
-# $ brew install neovim
