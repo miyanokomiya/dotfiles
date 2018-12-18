@@ -112,6 +112,8 @@ set nrformats=
 set whichwrap=b,s,h,l,<,>,[,],~
 " バッファスクロール
 set mouse=a
+" カーソル行強調
+set cursorline
 
 " インデント
 filetype plugin indent on
