@@ -69,3 +69,10 @@ let g:lightline.component_type = {
       \  'linter_ok': 'left',
       \ }
 '''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char = '▏'
+let g:indentLine_color_term = 239
+'''

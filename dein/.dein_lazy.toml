@@ -16,6 +16,9 @@ let g:go_highlight_structs = 1
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
+hook_add = '''
+autocmd FileType vue syntax sync fromstart
+'''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
