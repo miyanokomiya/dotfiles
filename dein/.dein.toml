@@ -27,11 +27,16 @@ hook_add = '''
 set hidden
 let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
+      \  'go': ['golsp']
       \ }
+let g:LanguageClient_loadSettings = 1
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 '''
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertEnter'
 hook_add = '''
 let g:deoplete#enable_at_startup = 1
 '''
