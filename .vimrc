@@ -126,6 +126,18 @@ setlocal iskeyword+=-
 " :grep後に:cw
 autocmd QuickFixCmdPost *grep* copen
 
+" 閉じカッコ補完と改行
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" インサートモードで左右移動
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
+
+" visualの色
+hi Visual term=reverse cterm=reverse ctermfg=darkcyan ctermbg=black
+
 " 編集箇所のカーソルを記憶
 if has("autocmd")
   augroup redhat

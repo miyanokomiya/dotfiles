@@ -54,7 +54,7 @@ let g:ale_fixers = {
       \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
       \  ],
       \ }
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 '''
 
 [[plugins]]
@@ -107,3 +107,7 @@ function! NERDCommenter_after()
   endif
 endfunction
 '''
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
