@@ -135,8 +135,18 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 
-" visualの色
+" 色調整
 hi Visual term=reverse cterm=reverse ctermfg=darkcyan ctermbg=black
+hi SpellCap term=reverse cterm=reverse ctermfg=darkred ctermbg=black
+
+" 上下余裕をもってスクロール
+set scrolloff=5
+
+" 検索中央表示
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
 
 " 編集箇所のカーソルを記憶
 if has("autocmd")
