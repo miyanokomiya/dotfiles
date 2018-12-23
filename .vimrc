@@ -127,6 +127,9 @@ setlocal iskeyword+=-
 autocmd QuickFixCmdPost *grep* copen
 
 " 閉じカッコ補完と改行
+inoremap ({<Enter> ({})<Left><Left><CR><ESC><S-o>
+inoremap [{<Enter> [{}]<Left><Left><CR><ESC><S-o>
+inoremap ([<Enter> ([])<Left><Left><CR><ESC><S-o>
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
@@ -142,11 +145,16 @@ hi SpellCap term=reverse cterm=reverse ctermfg=darkred ctermbg=black
 " 上下余裕をもってスクロール
 set scrolloff=5
 
-" 検索中央表示
+" ジャンプ後スクロール調整
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
 nnoremap # #zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
+nnoremap <S-g> <S-g>zz10<C-y>
 
 " 編集箇所のカーソルを記憶
 if has("autocmd")
