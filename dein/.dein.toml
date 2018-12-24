@@ -110,4 +110,13 @@ endfunction
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
-
+hook_add = '''
+  set background=dark
+  autocmd ColorScheme * highlight LineNr ctermfg=239<Paste>
+  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
+  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
+  augroup MyAutoCmd
+    autocmd!
+  augroup END
+  au MyAutoCmd VimEnter * nested colorscheme hybrid
+'''

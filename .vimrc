@@ -138,10 +138,6 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 
-" 色調整
-hi Visual term=reverse cterm=reverse ctermfg=darkcyan ctermbg=black
-hi SpellCap term=reverse cterm=reverse ctermfg=darkred ctermbg=black
-
 " 上下余裕をもってスクロール
 set scrolloff=5
 
