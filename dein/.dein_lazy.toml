@@ -36,3 +36,15 @@ on_ft = ['json']
 hook_add = '''
 let g:vim_json_syntax_conceal = 0
 '''
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript']
+hook_add = '''
+augroup FiletypeGroup
+    autocmd!
+    " .ts is a Typescript file
+    au BufNewFile,BufRead *.ts set filetype=typescript
+augroup END
+'''
+

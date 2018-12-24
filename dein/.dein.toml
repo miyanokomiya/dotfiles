@@ -27,6 +27,7 @@ hook_add = '''
 set hidden
 let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
+      \  'typescript': ['typescript-language-server'],
       \  'go': ['golsp']
       \ }
 let g:LanguageClient_loadSettings = 1
@@ -49,6 +50,7 @@ let g:ale_sign_error = '⨉'
 let g:ale_sign_warning = '⚠'
 let g:ale_fixers = {
       \  'javascript': ['prettier-eslint'],
+      \  'typescript': ['tslint'],
       \  'python': ['autopep8', 'isort'],
       \  'markdown': [
       \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
