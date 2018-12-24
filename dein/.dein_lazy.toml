@@ -29,3 +29,10 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
 map <C-n> :NERDTreeToggle<CR>
 '''
+
+[[plugins]] # jsonでダブルクォートが非表示になるのを解消
+repo = 'elzr/vim-json'
+on_ft = ['json']
+hook_add = '''
+let g:vim_json_syntax_conceal = 0
+'''
