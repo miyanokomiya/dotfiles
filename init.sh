@@ -18,5 +18,11 @@ ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 # $ sudo chown $(whoami):admin /usr/local/Frameworks
 # $ brew install python3
 # $ pip3 install --upgrade neovim
+# $ brew install neovim
 
+# grep tool
 # $ brew install the_silver_searcher
+
+# language-server
+# $ npm install -g vue-language-server
+# $ npm install -g typescript typescript-language-server
