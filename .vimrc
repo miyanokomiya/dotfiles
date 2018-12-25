@@ -152,6 +152,12 @@ nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
 nnoremap <S-g> <S-g>zz10<C-y>
 
+" vueのシンタックスが消える問題への対処(deinのhookでは効かなかった)
+autocmd FileType vue syntax sync fromstart
+
+" jjでエスケープ
+inoremap <silent> jj <ESC>
+
 " 編集箇所のカーソルを記憶
 if has("autocmd")
   augroup redhat

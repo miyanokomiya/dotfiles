@@ -20,9 +20,6 @@ let g:go_doc_keywordprg_enabled = 0
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = ['vue']
-hook_add = '''
-autocmd FileType vue syntax sync fromstart
-'''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -52,6 +49,8 @@ augroup END
 repo = 'Shougo/denite.nvim'
 on_event = 'BufRead'
 hook_post_source = '''
+call denite#custom#option('default', {'mode': 'normal'})
+call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 " ag setting
 if executable('ag')
   call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
