@@ -123,3 +123,4 @@ hook_add = '''
   augroup END
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''
+

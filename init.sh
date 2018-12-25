@@ -18,3 +18,5 @@ ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 # $ sudo chown $(whoami):admin /usr/local/Frameworks
 # $ brew install python3
 # $ pip3 install --upgrade neovim
+
+# $ brew install the_silver_searcher
