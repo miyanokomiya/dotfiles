@@ -28,7 +28,8 @@ set hidden
 let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
       \  'typescript': ['typescript-language-server'],
-      \  'go': ['golsp']
+      \  'go': ['golsp'],
+      \  'ruby': ['solargraph', 'stdio']
       \ }
 let g:LanguageClient_loadSettings = 1
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
