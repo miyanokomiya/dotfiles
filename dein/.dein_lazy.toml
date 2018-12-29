@@ -62,3 +62,30 @@ if executable('ag')
   call denite#custom#var('grep', 'final_opts', [])
 endif
 '''
+
+################
+### Markdown ###
+################
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown','mkd']
+hook_add = '''
+let g:vim_markdown_conceal = 0
+'''
+
+# quote内のプログラムをシンタックスハイライトする
+[[plugins]]
+repo = 'joker1007/vim-markdown-quote-syntax'
+on_ft = ['markdown','mkd']
+
+# 編集中のMarkdownファイルのプレビューを作成する
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown','mkd']
+
+# プレビューをブラウザで開いてくれる
+# :PrevimOpen
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown','mkd']
+

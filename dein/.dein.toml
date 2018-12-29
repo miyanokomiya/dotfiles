@@ -27,13 +27,15 @@ hook_add = '''
 set hidden
 let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
-      \  'typescript': ['typescript-language-server'],
+      \  'typescript': ['typescript-language-server', '--stdio'],
       \  'go': ['golsp'],
       \  'ruby': ['solargraph', 'stdio']
       \ }
 let g:LanguageClient_loadSettings = 1
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand("~/vim-lsp.log")
 '''
 
 [[plugins]]
