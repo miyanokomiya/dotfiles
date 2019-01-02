@@ -155,9 +155,6 @@ nnoremap <S-g> <S-g>zz10<C-y>
 " vueのシンタックスが消える問題への対処(deinのhookでは効かなかった)
 autocmd FileType vue syntax sync fromstart
 
-" jjでエスケープ
-inoremap <silent> jj <ESC>
-
 " 編集箇所のカーソルを記憶
 if has("autocmd")
   augroup redhat
@@ -171,3 +168,18 @@ if has("autocmd")
   augroup END
 endif
 
+" ヤンクを貼り付け
+nnoremap <silent> <C-p> "0p
+nnoremap <silent> <C-P> "0P
+
+" 囲み系操作
+noremap <silent> <C-s>' "zc''<ESC>"z<S-p>vi'
+vnoremap <silent> <C-s>" "zc""<ESC>"z<S-p>vi"
+vnoremap <silent> <C-s>` "zc``<ESC>"z<S-p>vi`
+vnoremap <silent> <C-s>] "zc[]<ESC>"z<S-p>vi]
+vnoremap <silent> <C-s>[ "zc[]<ESC>"z<S-p>vi]
+vnoremap <silent> <C-s>} "zc{}<ESC>"z<S-p>vi}
+vnoremap <silent> <C-s>{ "zc{}<ESC>"z<S-p>vi}
+vnoremap <silent> <C-s>( "zc()<ESC>"z<S-p>vi)
+vnoremap <silent> <C-s>) "zc()<ESC>"z<S-p>vi)
+vnoremap <silent> <C-s>x "zdxX"z<S-p>
