@@ -150,6 +150,8 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
+nnoremap <C-i> <C-i>zz
+nnoremap <C-o> <C-o>zz
 nnoremap <S-g> <S-g>zz10<C-y>
 
 " vueのシンタックスが消える問題への対処(deinのhookでは効かなかった)
@@ -168,18 +170,23 @@ if has("autocmd")
   augroup END
 endif
 
-" ヤンクを貼り付け
+" ヤンクを貼り付け(<C-S-p>はmapできない)
 nnoremap <silent> <C-p> "0p
-nnoremap <silent> <C-P> "0P
+vnoremap <silent> <C-p> "0p
 
 " 囲み系操作
-noremap <silent> <C-s>' "zc''<ESC>"z<S-p>vi'
-vnoremap <silent> <C-s>" "zc""<ESC>"z<S-p>vi"
-vnoremap <silent> <C-s>` "zc``<ESC>"z<S-p>vi`
-vnoremap <silent> <C-s>] "zc[]<ESC>"z<S-p>vi]
-vnoremap <silent> <C-s>[ "zc[]<ESC>"z<S-p>vi]
-vnoremap <silent> <C-s>} "zc{}<ESC>"z<S-p>vi}
-vnoremap <silent> <C-s>{ "zc{}<ESC>"z<S-p>vi}
-vnoremap <silent> <C-s>( "zc()<ESC>"z<S-p>vi)
-vnoremap <silent> <C-s>) "zc()<ESC>"z<S-p>vi)
+noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
+vnoremap <silent> <C-s>" "zc""<ESC>"z<S-p>
+vnoremap <silent> <C-s>` "zc``<ESC>"z<S-p>
+vnoremap <silent> <C-s>] "zc[]<ESC>"z<S-p>
+vnoremap <silent> <C-s>[ "zc[]<ESC>"z<S-p>
+vnoremap <silent> <C-s>} "zc{}<ESC>"z<S-p>
+vnoremap <silent> <C-s>{ "zc{}<ESC>"z<S-p>
+vnoremap <silent> <C-s>( "zc()<ESC>"z<S-p>
+vnoremap <silent> <C-s>) "zc()<ESC>"z<S-p>
+
+" 選択範囲の前後文字削除
 vnoremap <silent> <C-s>x "zdxX"z<S-p>
+
+" 括弧内での改行
+inoremap <silent> <C-o> <CR><ESC><S-o>
