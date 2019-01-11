@@ -25,6 +25,7 @@ on_ft = ['vue']
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeShowHidden = 1
 '''
 
 [[plugins]] # jsonでダブルクォートが非表示になるのを解消
