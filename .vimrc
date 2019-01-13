@@ -172,7 +172,6 @@ endif
 
 " ヤンクを貼り付け(<C-S-p>はmapできない)
 nnoremap <silent> <C-p> "0p
-vnoremap <silent> <C-p> "0p
 
 " 囲み系操作
 noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
@@ -190,3 +189,7 @@ vnoremap <silent> <C-s>x "zdxX"z<S-p>
 
 " 括弧内での改行
 inoremap <silent> <C-o> <CR><ESC><S-o>
+
+" コマンド履歴フィルタリングを有効にする
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
