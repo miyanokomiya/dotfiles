@@ -172,6 +172,7 @@ endif
 
 " ヤンクを貼り付け(<C-S-p>はmapできない)
 nnoremap <silent> <C-p> "0p
+vnoremap <silent> <C-p> "0p
 
 " 囲み系操作
 noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
