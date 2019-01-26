@@ -127,3 +127,8 @@ hook_add = '''
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''
 
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set updatetime=250
+'''
