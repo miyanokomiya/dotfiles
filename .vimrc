@@ -103,7 +103,7 @@ set number
 " set clipboard=unnamed,autoselect
 set clipboard+=unnamedplus
 " Escの2回押しでハイライト消去
-nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR><ESC>
 " すべての数を10進数として扱う
 set nrformats=
 " 行をまたいで移動
@@ -140,17 +140,13 @@ inoremap <C-b> <Left>
 set scrolloff=5
 
 " ジャンプ後スクロール調整
-nnoremap n nzz
-nnoremap N Nzz
-nnoremap * *zz
-nnoremap # #zz
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
 nnoremap <C-i> <C-i>zz
 nnoremap <C-o> <C-o>zz
-nnoremap <S-g> <S-g>zz10<C-y>
+nnoremap <S-g> <S-g>3<C-e>
 
 " vueのシンタックスが消える問題への対処(deinのhookでは効かなかった)
 autocmd FileType vue syntax sync fromstart
