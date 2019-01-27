@@ -71,8 +71,6 @@ set list
 set listchars=tab:^\ ,trail:~
 " コマンドラインの履歴を10000件保存する
 set history=10000
-" コメントの色を水色
-hi Comment ctermfg=3
 " 入力モードでTabキー押下時に半角スペースを挿入
 set expandtab
 " インデント幅
