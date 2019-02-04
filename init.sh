@@ -13,6 +13,8 @@ ln -snfv ~/dotfiles/dein/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
 mkdir -p ~/.config/nvim
 ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 
+ln -snfv ~/dotfiles/rplugin ~/.config/nvim
+
 # set up neovim
 # $ sudo mkdir /usr/local/Frameworks
 # $ sudo chown $(whoami):admin /usr/local/Frameworks
