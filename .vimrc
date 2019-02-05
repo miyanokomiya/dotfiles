@@ -188,3 +188,6 @@ inoremap <silent> <C-o> <CR><ESC><S-o>
 " コマンド履歴フィルタリングを有効にする
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" terminalモードでもESCでノーマルになりたい
+tnoremap <silent> <ESC> <C-\><C-n>
