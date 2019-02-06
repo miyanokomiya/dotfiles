@@ -188,3 +188,9 @@ inoremap <silent> <C-o> <CR><ESC><S-o>
 " コマンド履歴フィルタリングを有効にする
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" terminalモードでもESCでノーマルになりたい
+tnoremap <silent> <ESC> <C-\><C-n>
+
+" 前回ファイルを開く
+command! OL :e `=v:oldfiles[0]`
