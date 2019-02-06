@@ -191,3 +191,6 @@ cnoremap <C-n> <Down>
 
 " terminalモードでもESCでノーマルになりたい
 tnoremap <silent> <ESC> <C-\><C-n>
+
+" 前回ファイルを開く
+command! OL :e `=v:oldfiles[0]`
