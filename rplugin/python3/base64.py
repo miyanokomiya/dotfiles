@@ -2,7 +2,7 @@ import neovim
 import base64
 
 @neovim.plugin
-class TestPlugin(object):
+class Base64(object):
 
     def __init__(self, nvim):
         self.nvim = nvim
