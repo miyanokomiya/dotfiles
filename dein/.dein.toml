@@ -33,7 +33,7 @@ let g:LanguageClient_serverCommands = {
       \ }
 let g:LanguageClient_loadSettings = 1
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>zz
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand("~/vim-lsp.log")
 '''
