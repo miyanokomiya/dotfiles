@@ -22,16 +22,4 @@ class Base64(object):
 
     def get_visual_text(self):
         start_r, start_c, end_r, end_c = nvim_utils.get_visual_pos(self.nvim)
-        lines = self.nvim.current.buffer.range(start_r, end_r)
-        text = ''
-        for c, line in enumerate(lines):
-            if c == 0:
-                if lines.__len__() == 1:
-                    text += line[start_c - 1:end_c]
-                else:
-                    text += line[start_c - 1:]
-            elif c < lines.__len__() - 1:
-                text += '\n' + line
-            else:
-                text += '\n' + line[0:end_c]
-        return text
+        return nvim_utils.get_text(self.nvim, start_r, start_c, end_r, end_c)
