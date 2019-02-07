@@ -1,5 +1,6 @@
 import neovim
 import base64
+from myplugin.utils import nvim_utils
 
 @neovim.plugin
 class Base64(object):
@@ -20,8 +21,7 @@ class Base64(object):
         return self.get_visual_text() if len(args) == 0 else args[0]
 
     def get_visual_text(self):
-        start_r, start_c = self.nvim.eval('getpos("\'<")[1:2]')
-        end_r, end_c = self.nvim.eval('getpos("\'>")[1:2]')
+        start_r, start_c, end_r, end_c = nvim_utils.get_visual_pos(self.nvim)
         lines = self.nvim.current.buffer.range(start_r, end_r)
         text = ''
         for c, line in enumerate(lines):
