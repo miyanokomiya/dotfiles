@@ -29,7 +29,8 @@ let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
       \  'typescript': ['typescript-language-server', '--stdio'],
       \  'go': ['golsp'],
-      \  'ruby': ['solargraph', 'stdio']
+      \  'ruby': ['solargraph', 'stdio'],
+      \  'python': ['pyls']
       \ }
 let g:LanguageClient_loadSettings = 1
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

@@ -28,3 +28,4 @@ ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 # language-server
 # $ npm install -g vue-language-server
 # $ npm install -g typescript typescript-language-server
+# $ pip3 install python-language-server
