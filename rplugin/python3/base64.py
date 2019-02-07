@@ -31,7 +31,7 @@ class Base64(object):
                 else:
                     text += line[start_c - 1:]
             elif c < lines.__len__() - 1:
-                text += line
+                text += '\n' + line
             else:
-                text += line[0:end_c]
+                text += '\n' + line[0:end_c]
         return text
