@@ -10,16 +10,16 @@ class Base64(object):
     @neovim.command("Base64Decode", range='', nargs='?')
     def decode(self, args, range):
         try:
-            decoded = base64.b64decode(self.getText(args)).decode('utf-8')
+            decoded = base64.b64decode(self.get_text(args)).decode('utf-8')
             self.nvim.out_write(decoded + '\n')
         except Exception as e:
             self.nvim.err_write('Failed to decode: {}\n'.format(e.args))
 
-    def getText(self, args):
+    def get_text(self, args):
         # visual or 引数でbase64文字列を指定
-        return self.getVisualText() if len(args) == 0 else args[0]
+        return self.get_visual_text() if len(args) == 0 else args[0]
 
-    def getVisualText(self):
+    def get_visual_text(self):
         start_r, start_c = self.nvim.eval('getpos("\'<")[1:2]')
         end_r, end_c = self.nvim.eval('getpos("\'>")[1:2]')
         lines = self.nvim.current.buffer.range(start_r, end_r)
