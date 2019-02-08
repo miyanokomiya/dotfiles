@@ -1,3 +1,9 @@
+def get_cursor_pos(nvim):
+    """ cursor行位置取得 """
+
+    cursor_r, cursor_c = nvim.eval('getpos(".")[1:2]')
+    return cursor_r, cursor_c
+
 def get_visual_pos(nvim):
     """ visual範囲取得 """
 
