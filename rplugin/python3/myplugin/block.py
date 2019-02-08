@@ -15,7 +15,6 @@ class Block(object):
             return
 
         cursor_r, cursor_c = self.get_next_block() if args[0] == 'd' else self.get_pre_block()
-        self.nvim.err_write('{}, {}\n'.format(cursor_r, cursor_c))
         self.nvim.call('cursor', (cursor_r, cursor_c))
 
     def get_next_block(self):
