@@ -194,3 +194,5 @@ tnoremap <silent> <ESC> <C-\><C-n>
 
 " 前回ファイルを開く
 command! OL :e `=v:oldfiles[0]`
+command! OLV :e `=v:oldfiles[1]` | :vs `=v:oldfiles[0]`
+command! OLS :e `=v:oldfiles[1]` | :sp `=v:oldfiles[0]`
