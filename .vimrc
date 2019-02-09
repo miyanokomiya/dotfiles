@@ -113,6 +113,17 @@ set mouse=a
 " カーソル行強調
 set cursorline
 
+" 編集箇所のカーソルを記憶
+if has("autocmd")
+  augroup redhat
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
+    \ endif
+  augroup END
+endif
+
 " インデント
 filetype plugin indent on
 " シンタックスハイライト
@@ -123,6 +134,9 @@ setlocal iskeyword+=-
 
 " :grep後に:cw
 autocmd QuickFixCmdPost *grep* copen
+
+" textファイル編集時の自動改行解除
+autocmd FileType text setlocal textwidth=0
 
 " 閉じカッコ補完と改行
 inoremap ({<Enter> ({})<Left><Left><CR><ESC><S-o>
@@ -150,23 +164,6 @@ nnoremap <S-g> <S-g>3<C-e>
 
 " vueのシンタックスが消える問題への対処(deinのhookでは効かなかった)
 autocmd FileType vue syntax sync fromstart
-
-" 編集箇所のカーソルを記憶
-if has("autocmd")
-  augroup redhat
-    " In text files, always limit the width of text to 78 characters
-    autocmd BufRead *.txt set tw=78
-    " When editing a file, always jump to the last cursor position
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
-  augroup END
-endif
-
-" ヤンクを貼り付け(<C-S-p>はmapできない)
-nnoremap <silent> <C-p> "0p
-vnoremap <silent> <C-p> "0p
 
 " 囲み系操作
 noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
