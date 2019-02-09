@@ -15,11 +15,11 @@ def get_next_block(lines):
         if line.strip() == '':
             changed = True
             continue
-        index = count(line)
-        if index < target_indent:
+        indent = count(line)
+        if indent < target_indent:
             return i + 1
-        elif index == target_indent and changed:
-            return i + 1
+        elif indent == target_indent:
+            if changed: return i + 1
         else:
             changed = True
     return len(lines)

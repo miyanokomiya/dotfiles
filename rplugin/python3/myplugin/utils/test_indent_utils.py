@@ -34,6 +34,7 @@ class TestIndentModule(TestCase):
             (('  abc', ' abc', '  abc'), 1),
             # 開始から続く同レベルは無視
             ((' abc', ' abc', 'abc'), 2),
+            (('abc', 'abc', 'abc', ' abc', 'abc'), 4),
             # 空行を挟んだ場合、開始から続く同レベルでも終了
             ((' abc', '', ' abc', 'abc'), 2),
             # 空行開始の場合、非空行で終了
