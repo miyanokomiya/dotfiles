@@ -5,6 +5,7 @@ def sort_csv(text):
     sortedList = sorted(splitedList)
     return ', '.join(sortedList)
 
+
 def sort_object(text):
     """ Object文字列のソート """
 

@@ -1,6 +1,7 @@
 from unittest import TestCase
 from utils import indent_utils
 
+
 class TestIndentModule(TestCase):
     """ indent汎用処理のテスト """
 
@@ -14,12 +15,12 @@ class TestIndentModule(TestCase):
             ('\tabc', 1),
             ('\t\tabc', 2),
             (' \tabc', 2),
-            (' abc \t', 1), # 末尾の空白は無視
-            (' a b\tc', 1), # 文中の空白は無視
+            (' abc \t', 1),  # 末尾の空白は無視
+            (' a b\tc', 1),  # 文中の空白は無視
         ]
 
         for line, result in test_patterns:
-            with self.subTest(line = line, result = result):
+            with self.subTest(line=line, result=result):
                 self.assertEqual(indent_utils.count(line), result)
 
     def test_get_next_block(self):
@@ -42,7 +43,7 @@ class TestIndentModule(TestCase):
         ]
 
         for i, (lines, result) in enumerate(test_patterns):
-            with self.subTest(i = i, lines = lines, result = result):
+            with self.subTest(i=i, lines=lines, result=result):
                 self.assertEqual(indent_utils.get_next_block(lines), result)
 
     def test_get_pre_block(self):
@@ -55,7 +56,7 @@ class TestIndentModule(TestCase):
         ]
 
         for i, (lines, result) in enumerate(test_patterns):
-            with self.subTest(i = i, lines = lines, result = result):
+            with self.subTest(i=i, lines=lines, result=result):
                 self.assertEqual(indent_utils.get_pre_block(lines), result)
 
     def test_get_not_empty_line(self):
@@ -68,5 +69,6 @@ class TestIndentModule(TestCase):
         ]
 
         for i, (lines, result) in enumerate(test_patterns):
-            with self.subTest(i = i, lines = lines, result = result):
-                self.assertEqual(indent_utils.get_not_empty_line(lines), result)
+            with self.subTest(i=i, lines=lines, result=result):
+                self.assertEqual(
+                        indent_utils.get_not_empty_line(lines), result)

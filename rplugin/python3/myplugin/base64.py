@@ -2,6 +2,7 @@ import neovim
 import base64
 from myplugin.utils import nvim_utils
 
+
 @neovim.plugin
 class Base64(object):
 
