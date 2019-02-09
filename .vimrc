@@ -196,3 +196,7 @@ tnoremap <silent> <ESC> <C-\><C-n>
 command! OL :e `=v:oldfiles[0]`
 command! OLV :e `=v:oldfiles[1]` | :vs `=v:oldfiles[0]`
 command! OLS :e `=v:oldfiles[1]` | :sp `=v:oldfiles[0]`
+
+" ブロック移動 TODO visualモードのままカーソル移動させる方法
+nnoremap <silent> <C-j> :Block d<CR>
+nnoremap <silent> <C-k> :Block u<CR>
