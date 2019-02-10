@@ -16,24 +16,35 @@ def sort_object(lines):
     return lines
 
 
+class _LineWithNumInfo():
+    """ 数値始まり行情報 """
+
+    def __init__(self, line):
+        self.line = line
+
+        num_str = re.match(r'([+-]?[0-9]+\.?[0-9]*)', line)
+        if num_str:
+            self.num = float(num_str.group(0))
+            self.str = line[len(num_str.group(0)):]
+        else:
+            self.num = float('inf')
+            self.str = line
+
+    def compare(self, other):
+        if self.num != other.num:
+            return self.num - other.num
+
+        if self.str > other.str:
+            return 1
+        elif self.str == other.str:
+            return 0
+        else:
+            return -1
+
+
 def sort_by_number(lines):
     """ 数値付きテキストのソート """
 
-    pattern = r'([+-]?[0-9]+\.?[0-9]*)'
-    num_lines = []
-    without_num_lines = []
-    for line in lines:
-        num_str = re.match(pattern, line)
-        if num_str:
-            num_lines.append(
-                    {'num': float(num_str.group(0)), 'line': line})
-        else:
-            without_num_lines.append(line)
-
-    sorted_num_lines = sorted(
-            num_lines, key=cmp_to_key(lambda a, b: a['num'] - b['num']))
-    sorted_with_num_lines = list(
-            map(lambda data: data['line'], sorted_num_lines))
-    sorted_without_num_lines = sorted(without_num_lines)
-
-    return type(lines)(sorted_with_num_lines + sorted_without_num_lines)
+    infos = map(_LineWithNumInfo, lines)
+    sorted_infos = sorted(infos, key=cmp_to_key(lambda a, b: a.compare(b)))
+    return type(lines)(map(lambda info: info.line, sorted_infos))
