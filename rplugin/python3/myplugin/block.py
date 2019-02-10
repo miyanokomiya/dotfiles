@@ -11,12 +11,16 @@ class Block(object):
 
     @neovim.command("Block", range='', nargs='1')
     def block_jump(self, args, range):
-        arg = args[0]
-        if arg not in ('d', 'u'):
-            self.nvim.err_write('Invalid args: only "d" or "u"\n')
+        valid, mess = nvim_utils.valid_first_arg(args, ['d', 'u'])
+        if not valid:
+            self.nvim.err_write(mess)
             return
 
-        r, c = self.get_next_block() if arg == 'd' else self.get_pre_block()
+        r, c = 1, 1
+        if args[0] == 'd':
+            r, c = self.get_next_block()
+        else:
+            r, c = self.get_pre_block()
         self.nvim.call('cursor', (r, c))
 
     def get_next_block(self):

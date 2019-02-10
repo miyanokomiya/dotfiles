@@ -1,3 +1,9 @@
+def valid_first_arg(args, available_args):
+    if args[0] not in (available_args):
+        return False, 'Invalid args: only ' + ', '.join(available_args) + '.\n'
+    return True, None
+
+
 def get_cursor_pos(nvim):
     """ cursor行位置取得 """
 
