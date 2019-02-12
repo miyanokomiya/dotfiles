@@ -22,10 +22,12 @@ ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 # $ pip3 install --upgrade neovim
 # $ brew install neovim
 
-# grep tool
+# grep tool: ag
 # $ brew install the_silver_searcher
 
 # language-server
 # $ npm install -g vue-language-server
 # $ npm install -g typescript typescript-language-server
+# $ npm install -g javascript-typescript-langserver
 # $ pip3 install python-language-server
+# $ gem install solargraph

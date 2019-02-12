@@ -28,6 +28,7 @@ set hidden
 let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
       \  'typescript': ['typescript-language-server', '--stdio'],
+      \  'javascript': ['javascript-typescript-stdio'],
       \  'go': ['golsp'],
       \  'ruby': ['solargraph', 'stdio'],
       \  'python': ['pyls']
