@@ -149,6 +149,11 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 " インサートモードで左右移動
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
+" コマンドモードでも左右移動
+cnoremap <C-f> <Right>
+cnoremap <C-b> <Left>
+" 先頭移動（<C-a>はコマンド候補補完だが使いにくいしTabで十分）
+cnoremap <C-a> <C-b>
 
 " 上下余裕をもってスクロール
 set scrolloff=5
