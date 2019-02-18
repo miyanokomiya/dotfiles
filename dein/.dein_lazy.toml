@@ -63,6 +63,11 @@ if executable('ag')
   call denite#custom#var('grep', 'final_opts', [])
 endif
 '''
+hook_add = '''
+nnoremap <Leader>ff :Denite file_rec<CR>
+nnoremap <Leader>fg :Denite grep<CR>
+nnoremap <Leader>fr :Denite -resume<CR>
+'''
 
 ################
 ### Markdown ###
