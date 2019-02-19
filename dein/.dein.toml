@@ -145,11 +145,6 @@ map <Space>k <Plug>(easymotion-k)
 '''
 
 [[plugins]]
-repo = 'junegunn/fzf'
-build = './install --all'
-merged = '0'
-
-[[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
 " dotファイルを含める&プレビュー
@@ -162,4 +157,5 @@ command! -bang -nargs=* Ag
   \                         : fzf#vim#with_preview('right:50%', '?'),
   \                 <bang>0)
 nnoremap <C-p> :Files<CR>
+set rtp+=/usr/local/opt/fzf
 '''
