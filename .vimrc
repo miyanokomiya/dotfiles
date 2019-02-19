@@ -203,6 +203,9 @@ command! OLS :e `=v:oldfiles[1]` | :sp `=v:oldfiles[0]`
 nnoremap <silent> <C-w>u <C-w>s100<C-w>-5<C-w>+<C-w>j
 nnoremap <silent> <C-w>U <C-w>k<C-w>q
 
+" 前のバッファにトグル
+nnoremap <silent> <Space><Tab> <C-^>
+
 " ブロック移動 TODO visualモードのままカーソル移動させる方法
 nnoremap <silent> <C-j> :Block d<CR>
 nnoremap <silent> <C-k> :Block u<CR>
