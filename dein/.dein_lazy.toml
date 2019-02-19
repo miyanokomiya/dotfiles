@@ -50,11 +50,9 @@ augroup END
 repo = 'Shougo/denite.nvim'
 on_event = 'BufRead'
 hook_post_source = '''
-call denite#custom#option('default', {'mode': 'normal'})
-call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 " ag setting
 if executable('ag')
-  call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+  call denite#custom#var('file_rec', 'command', ['ag', '--hidden', '--ignore', '.git', '--follow', '--nocolor', '--nogroup', '-g', ''])
   call denite#custom#var('grep', 'command', ['ag'])
   call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
   call denite#custom#var('grep', 'recursive_opts', [])
@@ -64,9 +62,9 @@ if executable('ag')
 endif
 '''
 hook_add = '''
-nnoremap <Leader>ff :Denite file_rec<CR>
-nnoremap <Leader>fg :Denite grep<CR>
-nnoremap <Leader>fr :Denite -resume<CR>
+nnoremap <Space>df :Denite file_rec -mode='insert'<CR>
+nnoremap <Space>dg :Denite grep -mode='normal'<CR>
+nnoremap <Space>dr :Denite -resume<CR>
 '''
 
 ################
