@@ -1,4 +1,7 @@
 #!/bin/sh
+
+ln -snfv ~/dotfiles/.bashrc ~/.bashrc
+
 if [ ! -d ~/.cache/dein ]; then
   mkdir -p ~/.cache/dein
   cd ~/.cache/dein
@@ -22,8 +25,12 @@ ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 # $ pip3 install --upgrade neovim
 # $ brew install neovim
 
-# grep tool: ag
+# ag
 # $ brew install the_silver_searcher
+
+# fzf
+# $ brew install fzf
+# $ sh /usr/local/opt/fzf/install
 
 # language-server
 # $ npm install -g vue-language-server
