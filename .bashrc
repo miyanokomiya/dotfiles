@@ -1,7 +1,7 @@
 # fzfセットアップ
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_CTRL_T_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 # consoleにbranch名表示
 source /usr/local/etc/bash_completion.d/git-prompt.sh
