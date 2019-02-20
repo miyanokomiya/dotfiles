@@ -205,7 +205,3 @@ nnoremap <silent> <C-w>U <C-w>k<C-w>q
 
 " 前のバッファにトグル
 nnoremap <silent> <Space><Tab> <C-^>
-
-" ブロック移動 TODO visualモードのままカーソル移動させる方法
-nnoremap <silent> <C-j> :Block d<CR>
-nnoremap <silent> <C-k> :Block u<CR>

@@ -160,10 +160,8 @@ command! -bang -nargs=* Ag
 nnoremap <C-p> :Files<CR>
 nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>a :Ag<CR>
-command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
-nnoremap <Space>o :FZFMru<CR>
+nnoremap <Space>m :Marks<CR>
+nnoremap <Space>hf :History<CR>
+nnoremap <Space>hc :History:<CR>
+nnoremap <Space>hs :History/<CR>
 '''
