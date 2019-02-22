@@ -11,8 +11,16 @@ __fzf_history__() {
 }
 bind '"\C-r": " \C-e\C-u\C-y\ey\C-u`__fzf_history__`\e\C-e\er\e^"'
 
-# consoleにbranch名表示
+# console表示改造
+# branch名
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
-export PS1='\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]\$ '
+# job数
+jobscount() {
+  set -- $(jobs -rp)
+  set $# $(jobs -sp)
+  set $1 $(($#-1))
+  if [ $1 -ne 0 ] || [ $2 -ne 0 ]; then echo "[${1}r/${2}s]"; fi
+}
+export PS1='\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]$(jobscount)\$ '
