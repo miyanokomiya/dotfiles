@@ -24,3 +24,5 @@ jobscount() {
   if [ $1 -ne 0 ] || [ $2 -ne 0 ]; then echo "[${1}r/${2}s]"; fi
 }
 export PS1='\W\[\033[31m\]$(__git_ps1 [%s])\[\033[00m\]$(jobscount)\$ '
+
+alias e='nvim'
