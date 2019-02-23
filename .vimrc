@@ -205,5 +205,9 @@ nnoremap <silent> <C-w>U <C-w>k<C-w>q
 
 " 前のバッファにトグル
 nnoremap <silent> <Space><Tab> <C-^>
+
 " terminalショートカット
 nnoremap <silent> <Space>t :terminal<CR>i
+
+" マークダウンで色々消えるので無効化
+set conceallevel=0

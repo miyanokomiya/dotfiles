@@ -71,17 +71,20 @@ augroup END
 ################
 ### Markdown ###
 ################
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown','mkd']
-hook_add = '''
-let g:vim_markdown_conceal = 0
-'''
+# [[plugins]]
+# repo = 'plasticboy/vim-markdown'
+# on_ft = ['markdown','mkd']
+# hook_add = '''
+# let g:vim_markdown_conceal = 0
+# let g:vim_markdown_folding_disabled = 1
+# let g:vim_markdown_auto_insert_bullets = 0
+# let g:vim_markdown_new_list_item_indent = 0
+# '''
 
-# quote内のプログラムをシンタックスハイライトする
-[[plugins]]
-repo = 'joker1007/vim-markdown-quote-syntax'
-on_ft = ['markdown','mkd']
+# # quote内のプログラムをシンタックスハイライトする
+# [[plugins]]
+# repo = 'joker1007/vim-markdown-quote-syntax'
+# on_ft = ['markdown','mkd']
 
 # 編集中のMarkdownファイルのプレビューを作成する
 [[plugins]]
