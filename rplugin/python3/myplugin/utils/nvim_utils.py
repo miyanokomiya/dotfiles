@@ -5,10 +5,16 @@ def valid_first_arg(args, available_args):
 
 
 def get_cursor_pos(nvim):
-    """ cursor行位置取得 """
+    """ cursor位置取得 """
 
     cursor_r, cursor_c = nvim.eval('getpos(".")[1:2]')
     return cursor_r, cursor_c
+
+
+def set_cursor_pos(nvim, cursor_r, cursor_c):
+    """ cursor位置変更 """
+
+    nvim.call('cursor', (cursor_r, cursor_c))
 
 
 def get_visual_pos(nvim):

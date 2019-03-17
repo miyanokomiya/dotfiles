@@ -10,6 +10,7 @@ class MyPlugin(object):
 
     def __init__(self, nvim):
         self.nvim = nvim
+        self.cursor_hash = {}
 
     @neovim.command("Base64Decode", range='', nargs='?')
     def decode(self, args, range):
@@ -39,7 +40,7 @@ class MyPlugin(object):
             r, c = self.get_next_block()
         else:
             r, c = self.get_pre_block()
-        self.nvim.call('cursor', (r, c))
+        nvim_utils.set_cursor_pos(self.nvim, r, c)
 
     def get_next_block(self):
         cursor_r, cursor_c = nvim_utils.get_cursor_pos(self.nvim)
@@ -62,3 +63,16 @@ class MyPlugin(object):
         self.nvim.current.buffer[
             start_r-1:end_r-1] = sort_utils.sort_by_number(
                 self.nvim.current.buffer[start_r-1:end_r-1])
+
+    @neovim.autocmd(
+            'BufWinLeave', pattern='*', eval='expand("<afile>")', sync=True)
+    def saveCursor(self, filename):
+        cursor_r, cursor_c = nvim_utils.get_cursor_pos(self.nvim)
+        self.cursor_hash[filename] = [cursor_r, cursor_c]
+
+    @neovim.autocmd(
+        'BufWinEnter', pattern='*', eval='expand("<afile>")', sync=True)
+    def restoreCursor(self, filename):
+        if filename in self.cursor_hash:
+            cursor_r, cursor_c = self.cursor_hash[filename]
+            nvim_utils.set_cursor_pos(self.nvim, cursor_r, cursor_c)
