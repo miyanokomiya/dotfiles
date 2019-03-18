@@ -63,20 +63,3 @@ class MyPlugin(object):
         self.nvim.current.buffer[
             start_r-1:end_r-1] = sort_utils.sort_by_number(
                 self.nvim.current.buffer[start_r-1:end_r-1])
-
-    @neovim.autocmd(
-            'BufWinLeave', pattern='*', eval='expand("<afile>")', sync=True)
-    def save_cursor(self, filename):
-        self.cursor_hash[filename] = nvim_utils.get_cursor_pos(self.nvim)
-
-    @neovim.autocmd(
-        'BufWinEnter', pattern='*', eval='expand("<afile>")', sync=True)
-    def restore_cursor(self, filename):
-        # bufferに残っていない情報を削除
-        buffer_names = nvim_utils.get_buffer_names(self.nvim)
-        for key in list(self.cursor_hash.keys()):
-            if key not in buffer_names:
-                del self.cursor_hash[key]
-        # カーソル復元
-        if filename in self.cursor_hash:
-            nvim_utils.set_cursor_pos(self.nvim, *self.cursor_hash[filename])

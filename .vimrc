@@ -213,3 +213,7 @@ nnoremap <silent> <Space>t :terminal<CR>i
 
 " マークダウンで色々消えるので無効化
 set conceallevel=0
+
+" バッファ切替時にカーソル位置復元
+au BufLeave * let b:winview = winsaveview()
+au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
