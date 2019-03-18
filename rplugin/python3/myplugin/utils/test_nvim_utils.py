@@ -75,3 +75,31 @@ class TestNvimModule(TestCase):
                                             end_r,
                                             end_c),
                         text)
+
+    def test_get_buffer_names(self):
+        """ get_buffer_namesのテスト """
+
+        class Nvim():
+            def __init__(self, bufnr):
+                self.bufnr = bufnr
+
+            def eval(self, command):
+                if command == 'bufnr("$")':
+                    return bufnr
+                elif command == 'bufname(1)':
+                    return '1_name'
+                elif command == 'bufname(3)':
+                    return '3_name'
+                else:
+                    return None
+
+        test_patterns = [
+            (1, ['1_name']),
+            (2, ['1_name']),
+            (3, ['1_name', '3_name']),
+        ]
+
+        for bufnr, buffers in test_patterns:
+            with self.subTest(bufnr=bufnr, buffers=buffers):
+                nvim = Nvim(bufnr)
+                self.assertEqual(nvim_utils.get_buffer_names(nvim), buffers)

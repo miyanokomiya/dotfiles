@@ -41,3 +41,16 @@ def get_text(nvim, start_r, start_c, end_r, end_c):
         else:
             text += '\n' + line[0:end_c]
     return text
+
+
+def get_buffer_names(nvim):
+    """ buffer名一覧取得 """
+
+    buffer_count = nvim.eval('bufnr("$")')
+    buffers = []
+    for i in range(buffer_count):
+        name = nvim.eval('bufname({})'.format(i + 1))
+        # 番号はシーケンシャルではない
+        if name:
+            buffers.append(name)
+    return buffers
