@@ -206,7 +206,7 @@ nnoremap <silent> <C-w>u <C-w>s100<C-w>-5<C-w>+<C-w>j
 nnoremap <silent> <C-w>U <C-w>k<C-w>q
 
 " 前のバッファにトグル
-nnoremap <silent> <Space><Tab> <C-^>
+nnoremap <silent> <Space><Tab> <C-^>zz
 
 " terminalショートカット
 nnoremap <silent> <Space>t :terminal<CR>i
