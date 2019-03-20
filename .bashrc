@@ -2,7 +2,8 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_DEFAULT_OPTS="--reverse --border"
+export FZF_CTRL_T_OPTS='--reverse --border'
+export FZF_CTRL_R_OPTS='--reverse --border'
 # historyの重複削除
 __fzf_history__() {
   if type tac > /dev/null 2>&1; then tac="tac"; else tac="tail -r"; fi

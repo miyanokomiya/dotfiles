@@ -167,7 +167,7 @@ command! -bang -nargs=* Ag
   \   <bang>0)
 nnoremap <C-p> :Files<CR>
 nnoremap <Space>b :Buffers<CR>
-nnoremap <Space>a :Ag 
+nnoremap <Space>a :Ag<Space>
 nnoremap <Space>m :Marks<CR>
 nnoremap <Space>hf :History<CR>
 nnoremap <Space>hc :History:<CR>
