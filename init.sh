@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ln -snfv ~/dotfiles/.bashrc ~/.bashrc
+ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 if [ ! -d ~/.cache/dein ]; then
   mkdir -p ~/.cache/dein
@@ -10,8 +11,8 @@ if [ ! -d ~/.cache/dein ]; then
 fi
 
 mkdir -p ~/.cache/dein
-ln -snfv ~/dotfiles/dein/.dein.toml ~/.cache/dein/.dein.toml 
-ln -snfv ~/dotfiles/dein/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml 
+ln -snfv ~/dotfiles/dein/.dein.toml ~/.cache/dein/.dein.toml
+ln -snfv ~/dotfiles/dein/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
 
 mkdir -p ~/.config/nvim
 ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
