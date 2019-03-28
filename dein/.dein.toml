@@ -56,6 +56,7 @@ let g:ale_sign_warning = '⚠'
 let g:ale_fixers = {
       \  'javascript': ['prettier', 'prettier-eslint'],
       \  'typescript': ['prettier', 'prettier-eslint', 'tslint'],
+      \  'vue': ['prettier', 'prettier-eslint'],
       \  'python': ['autopep8', 'isort'],
       \  'markdown': [
       \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
@@ -173,3 +174,6 @@ nnoremap <Space>hf :History<CR>
 nnoremap <Space>hc :History:<CR>
 nnoremap <Space>hs :History/<CR>
 '''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
