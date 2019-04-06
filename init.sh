@@ -1,7 +1,6 @@
 #!/bin/sh
 
 ln -snfv ~/dotfiles/.bashrc ~/.bashrc
-ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
 
 if [ ! -d ~/.cache/dein ]; then
   mkdir -p ~/.cache/dein
@@ -44,3 +43,10 @@ ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 git config --global alias.gr "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 git config --global alias.gra "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 git config --global core.editor nvim
+
+# tmux
+ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
+if [ ! -e ~/.tmux ]; then
+  mkdir -p ~/.tmux/plugins
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
