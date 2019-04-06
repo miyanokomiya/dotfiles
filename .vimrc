@@ -218,6 +218,7 @@ set conceallevel=0
 au BufLeave * let b:winview = winsaveview()
 au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 
+" 保存時にディレクトリを作る
 augroup vimrc-auto-mkdir
   autocmd!
   autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
@@ -227,3 +228,7 @@ augroup vimrc-auto-mkdir
     endif
   endfunction
 augroup END
+
+" 同インデントの箇所へジャンプ
+nnoremap <silent> <C-k> k:call search ("^". matchstr (getline (line (".")+ 1), '\(\s*\)') ."\\S", 'b')<CR>^
+nnoremap <silent> <C-j> :call search ("^". matchstr (getline (line (".")), '\(\s*\)') ."\\S")<CR>^
