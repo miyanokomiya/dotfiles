@@ -2,7 +2,9 @@
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_CTRL_T_OPTS='--reverse --border'
+export FZF_CTRL_T_OPTS='--reverse --border --preview "
+  [[ $(file --mime {}) =~ binary ]] && echo {} is a binary file ||
+  (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -100"'
 export FZF_CTRL_R_OPTS='--reverse --border'
 # historyの重複削除
 __fzf_history__() {
