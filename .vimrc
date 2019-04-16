@@ -174,17 +174,17 @@ autocmd FileType vue syntax sync fromstart
 
 " 囲み系操作
 noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
-vnoremap <silent> <C-s>" "zc""<ESC>"z<S-p>
-vnoremap <silent> <C-s>` "zc``<ESC>"z<S-p>
-vnoremap <silent> <C-s>] "zc[]<ESC>"z<S-p>
-vnoremap <silent> <C-s>[ "zc[]<ESC>"z<S-p>
-vnoremap <silent> <C-s>} "zc{}<ESC>"z<S-p>
-vnoremap <silent> <C-s>{ "zc{}<ESC>"z<S-p>
-vnoremap <silent> <C-s>( "zc()<ESC>"z<S-p>
-vnoremap <silent> <C-s>) "zc()<ESC>"z<S-p>
+xnoremap <silent> <C-s>" "zc""<ESC>"z<S-p>
+xnoremap <silent> <C-s>` "zc``<ESC>"z<S-p>
+xnoremap <silent> <C-s>] "zc[]<ESC>"z<S-p>
+xnoremap <silent> <C-s>[ "zc[]<ESC>"z<S-p>
+xnoremap <silent> <C-s>} "zc{}<ESC>"z<S-p>
+xnoremap <silent> <C-s>{ "zc{}<ESC>"z<S-p>
+xnoremap <silent> <C-s>( "zc()<ESC>"z<S-p>
+xnoremap <silent> <C-s>) "zc()<ESC>"z<S-p>
 
 " 選択範囲の前後文字削除
-vnoremap <silent> <C-s>x "zdxX"z<S-p>
+xnoremap <silent> <C-s>x "zdxX"z<S-p>
 
 " 括弧内での改行
 inoremap <silent> <C-o> <CR><ESC><S-o>
@@ -229,6 +229,8 @@ augroup vimrc-auto-mkdir
   endfunction
 augroup END
 
-" 同インデントの箇所へジャンプ
-nnoremap <silent> <C-k> k:call search ("^". matchstr (getline (line (".")+ 1), '\(\s*\)') ."\\S", 'b')<CR>^
-nnoremap <silent> <C-j> :call search ("^". matchstr (getline (line (".")), '\(\s*\)') ."\\S")<CR>^
+" ブロック単位ジャンプ
+nnoremap <silent> <C-k> :BlockJumpUp<CR>
+nnoremap <silent> <C-j> :BlockJumpDown<CR>
+xnoremap <silent> <C-k> <ESC>:BlockJumpUp<CR>m>gv
+xnoremap <silent> <C-j> <ESC>:BlockJumpDown<CR>m>gv
