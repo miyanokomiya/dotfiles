@@ -1,0 +1,44 @@
+snippet scaf_template
+  <template>
+    <div>
+      ${1:`expand('%:r')`}
+    </div>
+  </template>
+
+snippet scaf_js
+  <script>
+  export default {
+    ${1}
+  }
+  </script>
+
+snippet scaf_ts
+  <script lang="ts">
+  import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
+
+  @Component
+  export default class ${1:`expand('%:r')`} extends Vue {
+    ${2}
+  }
+  </script>
+
+snippet scaf_style
+  <style ${1:lang="scss"} scoped>
+  </style>
+
+snippet prop_string
+  @Prop({ type: ${1:String}, required: true })
+  ${2:value}: ${3:string}
+
+snippet prop_number
+  @Prop({ type: ${1:Number}, required: true })
+  ${2:value}: ${3:number}
+
+snippet emit
+  @Emit('${1:input}')
+  $1(${2:value}) {}
+
+snippet v-for
+  <${1:div} v-for="${2} in ${3}" :key="$2">
+    ${4}
+  </$1>

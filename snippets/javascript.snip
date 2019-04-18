@@ -1,0 +1,28 @@
+snippet describe()
+  describe('${1:text}', () => {
+    ${2}
+  })
+
+snippet context()
+  context('${1:text}', () => {
+    ${2}
+  })
+
+snippet it()
+  it('${1:text}', () => {
+    ${2}
+  })
+
+snippet test()
+  test('${1:text}', () => {
+    ${2}
+  })
+
+snippet reduce()
+  reduce((p, c) => {
+    ${1}
+    return p
+  }, {})
+
+snippet sort()
+  sort((a, b) => a.${1} >= b.$1 ? 1 : -1)

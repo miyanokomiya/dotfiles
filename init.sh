@@ -17,6 +17,8 @@ mkdir -p ~/.config/nvim
 ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 ln -snfv ~/dotfiles/rplugin ~/.config/nvim
+ln -snfv ~/dotfiles/dict ~/.config/nvim
+ln -snfv ~/dotfiles/snippets ~/.config/nvim
 
 # set up neovim
 # $ sudo mkdir /usr/local/Frameworks
