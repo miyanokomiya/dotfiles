@@ -229,11 +229,25 @@ augroup vimrc-auto-mkdir
   endfunction
 augroup END
 
+" 辞書登録
+let &dict = join(split(expand("$HOME/.config/nvim/dict/**"), "\n"), ",")
+
+function! ClipText(data)
+  let @0=a:data
+  let @"=a:data
+  let @*=a:data " ヤンク時と同様にレジスタへ登録
+endfunction
+" カレントファイルパスをヤンク
+nnoremap <C-g> :call ClipText(expand('%'))<CR><C-g>
+
+"""""
+" 自作プラグイン関連
+
 " ブロック単位ジャンプ
 nnoremap <silent> <C-k> :BlockJumpUp<CR>
 nnoremap <silent> <C-j> :BlockJumpDown<CR>
 xnoremap <silent> <C-k> <ESC>:BlockJumpUp<CR>m>gv
 xnoremap <silent> <C-j> <ESC>:BlockJumpDown<CR>m>gv
 
-" 辞書登録
-let &dict = join(split(expand("$HOME/.config/nvim/dict/**"), "\n"), ",")
+" 自作プラグイン関連
+"""
