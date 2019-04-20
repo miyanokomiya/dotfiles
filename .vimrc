@@ -42,7 +42,7 @@ set virtualedit=block
 set backspace=indent,eol,start
 set ambiwidth=double
 set wildmenu
-set wildmode=longest,full
+set wildoptions+=pum
 set wrapscan
 set incsearch
 set hlsearch
@@ -157,10 +157,9 @@ cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 " 先頭移動（<C-a>はコマンド候補補完だが使いにくいしTabで十分）
 cnoremap <C-a> <C-b>
-" コマンド履歴フィルタリングを有効にする
-" FIXME wildmenuでの移動はできなくなるので、「set wildoptions+=pum」とは相性悪い
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
+" コマンド履歴フィルタリングを有効にする -> pum表示中を考慮
+cnoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<Up>"
+cnoremap <expr><C-n> pumvisible() ? "\<C-n>" : "\<Down>"
 
 " 上下余裕をもってスクロール
 set scrolloff=5
