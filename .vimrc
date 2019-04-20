@@ -42,6 +42,7 @@ set virtualedit=block
 set backspace=indent,eol,start
 set ambiwidth=double
 set wildmenu
+set wildmode=longest,full
 set wrapscan
 set incsearch
 set hlsearch
@@ -156,6 +157,10 @@ cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
 " 先頭移動（<C-a>はコマンド候補補完だが使いにくいしTabで十分）
 cnoremap <C-a> <C-b>
+" コマンド履歴フィルタリングを有効にする
+" FIXME wildmenuでの移動はできなくなるので、「set wildoptions+=pum」とは相性悪い
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
 " 上下余裕をもってスクロール
 set scrolloff=5
@@ -188,10 +193,6 @@ xnoremap <silent> <C-s>x "zdxX"z<S-p>
 
 " 括弧内での改行
 inoremap <silent> <C-o> <CR><ESC><S-o>
-
-" コマンド履歴フィルタリングを有効にする
-cnoremap <C-p> <Up>
-cnoremap <C-n> <Down>
 
 " terminalモードでもESCでノーマルになりたい
 tnoremap <silent> <ESC> <C-\><C-n>
