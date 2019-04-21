@@ -237,11 +237,12 @@ function! ClipText(data)
   let @"=a:data
   let @*=a:data " ヤンク時と同様にレジスタへ登録
 endfunction
-" カレントファイルパスをヤンク
-nnoremap <C-g> :call ClipText(expand('%'))<CR><C-g>
+" カレントファイルパスをヤンク FIXME ３項演算子使わないで書けない？
+nnoremap <expr> <C-g> ClipText(expand('%')) ? "" : "\<C-g>"
 
-"""""
+"--------
 " 自作プラグイン関連
+"--------
 
 " ブロック単位ジャンプ
 nnoremap <silent> <C-k> :BlockJumpUp<CR>
@@ -249,5 +250,4 @@ nnoremap <silent> <C-j> :BlockJumpDown<CR>
 xnoremap <silent> <C-k> <ESC>:BlockJumpUp<CR>m>gv
 xnoremap <silent> <C-j> <ESC>:BlockJumpDown<CR>m>gv
 
-" 自作プラグイン関連
-"""
+"--------
