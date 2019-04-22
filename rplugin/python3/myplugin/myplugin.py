@@ -3,6 +3,7 @@ import base64
 from myplugin.utils import indent_utils
 from myplugin.utils import nvim_utils
 from myplugin.utils import sort_utils
+from myplugin.utils import json_utils
 
 
 @neovim.plugin
@@ -48,7 +49,7 @@ class MyPlugin(object):
         lines = self.nvim.current.buffer[:cursor_r]
         return indent_utils.get_pre_block(lines) + 1, cursor_c
 
-    @neovim.command("Sort", range='', nargs='1')
+    @neovim.command("Sort", range='', nargs='1', sync=True)
     def sort(self, args, range):
         valid, mess = nvim_utils.valid_first_arg(args, ['num'])
         if not valid:
@@ -59,3 +60,11 @@ class MyPlugin(object):
         self.nvim.current.buffer[
             start_r-1:end_r-1] = sort_utils.sort_by_number(
                 self.nvim.current.buffer[start_r-1:end_r-1])
+
+    @neovim.command("SeekJsonKey", sync=True)
+    def seek_json_key(self):
+        cursor_r = nvim_utils.get_cursor_pos(self.nvim)[0]
+        lines = self.nvim.current.buffer[:cursor_r]
+        key = json_utils.seek_key(lines, cursor_r - 1)
+        nvim_utils.clip(self.nvim, key)
+        self.nvim.out_write('clipped: ' + key + '\n')

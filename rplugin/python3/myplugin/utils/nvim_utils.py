@@ -54,3 +54,11 @@ def get_buffer_names(nvim):
         if name:
             buffers.append(name)
     return buffers
+
+
+def clip(nvim, text):
+    """ クリップ """
+
+    nvim.command('let @0="{}"'.format(text))
+    nvim.command('let @"="{}"'.format(text))
+    nvim.command('let @*="{}"'.format(text))
