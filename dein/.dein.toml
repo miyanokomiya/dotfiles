@@ -216,9 +216,3 @@ nnoremap <Space>h/ :History/<CR>
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-
-[[plugins]]
-repo = 'miyanokomiya/key-seeker.nvim'
-hook_add = '''
-nnoremap <silent> <Space>s :KeySeekerClip<CR>
-'''

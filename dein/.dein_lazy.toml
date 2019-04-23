@@ -72,3 +72,10 @@ on_ft = ['tf']
 hook_add = '''
 let g:terraform_fmt_on_save = 1
 '''
+
+[[plugins]]
+repo = 'miyanokomiya/key-seeker.nvim'
+hook_add = '''
+nnoremap <silent> <Space>s :KeySeekerClip<CR>
+'''
+on_cmd    = ['KeySeekerClip']
