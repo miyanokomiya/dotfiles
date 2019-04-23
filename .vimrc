@@ -250,7 +250,4 @@ nnoremap <silent> <C-k> :BlockJumpUp<CR>
 nnoremap <silent> <C-j> :BlockJumpDown<CR>
 xnoremap <silent> <C-k> <ESC>:BlockJumpUp<CR>m>gv
 xnoremap <silent> <C-j> <ESC>:BlockJumpDown<CR>m>gv
-
-" json階層キー取得
-nnoremap <silent> <Space>s :SeekJsonKey<CR>
 "--------
