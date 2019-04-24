@@ -75,7 +75,7 @@ let g:terraform_fmt_on_save = 1
 
 [[plugins]]
 repo = 'miyanokomiya/key-seeker.nvim'
-on_cmd = ['KeySeekerClip']
+on_cmd = ['KeySeekerClip', 'KeySeekerDig']
 hook_add = '''
 nnoremap <silent> <Space>s :KeySeekerClip<CR>
 '''
