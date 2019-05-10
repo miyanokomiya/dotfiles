@@ -35,6 +35,7 @@ endif
 "----------------------------------------
 " 基本設定
 "----------------------------------------
+lang en_US.UTF-8
 set number
 set nowritebackup
 set nobackup
