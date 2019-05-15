@@ -34,3 +34,5 @@ alias e='nvim'
 # history共有
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 shopt -u histappend
+
+HISTSIZE=5000
