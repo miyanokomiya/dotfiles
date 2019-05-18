@@ -34,10 +34,13 @@ let g:LanguageClient_serverCommands = {
       \  'python': ['pyls']
       \ }
 let g:LanguageClient_loadSettings = 1
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 let g:lsp_log_verbose = 1
 let g:lsp_log_file = expand("~/vim-lsp.log")
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
+autocmd CursorHold * silent call LanguageClient_textDocument_documentHighlight()
+command! -nargs=0 Format :call LanguageClient_textDocument_formatting()
 '''
 
 [[plugins]]
@@ -78,7 +81,7 @@ let g:ale_fixers = {
       \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
       \  ],
       \ }
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 let g:ale_javascript_prettier_use_local_config = 1
 nmap <silent> <Space>p <Plug>(ale_previous_wrap)
 nmap <silent> <Space>n <Plug>(ale_next_wrap)
