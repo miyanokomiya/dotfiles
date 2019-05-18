@@ -10,15 +10,18 @@ if [ ! -d ~/.cache/dein ]; then
 fi
 
 mkdir -p ~/.cache/dein
+mkdir -p ~/.config/nvim
+mkdir -p ~/.config/coc/extensions
+
 ln -snfv ~/dotfiles/dein/.dein.toml ~/.cache/dein/.dein.toml
 ln -snfv ~/dotfiles/dein/.dein_lazy.toml ~/.cache/dein/.dein_lazy.toml
 
-mkdir -p ~/.config/nvim
 ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 
 ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 ln -snfv ~/dotfiles/dict ~/.config/nvim
 ln -snfv ~/dotfiles/snippets ~/.config/nvim
+ln -snfv ~/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 
 # set up neovim
 # $ sudo mkdir /usr/local/Frameworks

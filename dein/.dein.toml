@@ -9,35 +9,16 @@ let g:lightline = {
       \   'left': [
       \    ['mode', 'paste'],
       \    ['readonly', 'filename', 'modified', 'ale'],
-      \    ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+      \    [ 'cocstatus' ],
+      \    ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok']
       \   ]
       \  },
       \  'component_function': {
-      \   'ale': 'ALEGetStatusLine'
+      \   'ale': 'ALEGetStatusLine',
+      \   'cocstatus': 'coc#status'
       \  }
       \ }
 set noshowmode
-'''
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-hook_add = '''
-set hidden
-let g:LanguageClient_serverCommands = {
-      \  'vue': ['vls'],
-      \  'typescript': ['typescript-language-server', '--stdio'],
-"      \  'javascript': ['javascript-typescript-stdio'],
-      \  'go': ['golsp'],
-      \  'ruby': ['solargraph', 'stdio'],
-      \  'python': ['pyls']
-      \ }
-let g:LanguageClient_loadSettings = 1
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand("~/vim-lsp.log")
 '''
 
 [[plugins]]
@@ -62,6 +43,31 @@ endif
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+# TODO 他の補完ツールとの共存を前提としていなく、deopleteと相性が悪い
+# => 補完表示にアラートがちらつく
+repo = 'neoclide/coc.nvim'
+build = './install.sh nightly'
+hook_add = '''
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction<Paste>
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+command! -nargs=0 Format :call CocAction('format')
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+'''
 
 [[plugins]]
 repo = 'w0rp/ale'
