@@ -23,6 +23,7 @@ on_ft = ['vue']
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+on_cmd = ['NERDTreeToggle']
 hook_add = '''
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
