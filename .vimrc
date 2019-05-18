@@ -47,6 +47,9 @@ set wildoptions+=pum
 set wrapscan
 set incsearch
 set hlsearch
+set hidden
+set pyxversion=3
+set completeopt=noselect,menuone
 
 "----------------------------------------
 " 表示設定
