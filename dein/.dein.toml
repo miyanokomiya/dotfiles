@@ -23,6 +23,7 @@ set noshowmode
 repo = 'autozimu/LanguageClient-neovim'
 rev = 'next'
 build = 'bash install.sh'
+depends = ['fzf.vim']
 hook_add = '''
 set hidden
 let g:LanguageClient_serverCommands = {
@@ -34,13 +35,19 @@ let g:LanguageClient_serverCommands = {
       \  'python': ['pyls']
       \ }
 let g:LanguageClient_loadSettings = 1
-let g:lsp_log_verbose = 1
-let g:lsp_log_file = expand("~/vim-lsp.log")
+nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
-autocmd CursorHold * silent call LanguageClient_textDocument_documentHighlight()
+nnoremap <silent> gl :call LanguageClient_textDocument_documentHighlight()<CR>
 command! -nargs=0 Format :call LanguageClient_textDocument_formatting()
+
+nnoremap <silent> gr :call LanguageClient_textDocument_references_with_FZF()<CR>
+function! LanguageClient_textDocument_references_with_FZF()
+  if g:loaded_fzf && !exists('g:LanguageClient_fzfOptions')
+    let g:LanguageClient_fzfOptions = fzf#vim#with_preview('right:50%', '?').options
+  endif
+  call LanguageClient_textDocument_references()
+endfunction
 '''
 
 [[plugins]]
@@ -179,11 +186,11 @@ map <Space>k <Plug>(easymotion-k)
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
+set rtp+=/usr/local/opt/fzf
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
   \ 'ctrl-v': 'vsplit' }
-set rtp+=/usr/local/opt/fzf
 
 " dotファイルを含める&プレビュー
 command! -bang -nargs=? -complete=dir Files
