@@ -36,3 +36,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 shopt -u histappend
 
 HISTSIZE=5000
+
+export PATH=$PATH:$HOME/.deno/bin
+export PATH=$PATH:$HOME/.cargo/bin
