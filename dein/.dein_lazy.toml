@@ -80,3 +80,7 @@ on_cmd = ['KeySeekerClip', 'KeySeekerDig']
 hook_add = '''
 nnoremap <silent> <Space>s :KeySeekerClip<CR>
 '''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_func = ['emmet-expand-abbr']
