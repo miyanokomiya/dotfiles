@@ -219,8 +219,8 @@ nnoremap <silent> <Space>t :terminal<CR>i
 set conceallevel=0
 
 " バッファ切替時にカーソル位置復元
-au BufLeave * let b:winview = winsaveview()
-au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
+" au BufLeave * let b:winview = winsaveview()
+" au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
 
 " 保存時にディレクトリを作る
 augroup vimrc-auto-mkdir

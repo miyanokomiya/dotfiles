@@ -1,0 +1,11 @@
+snippet test_cfg()
+  #[cfg(test)]
+  mod tests {
+    use super::*;
+
+    #[test]
+    fn ${1:test_function_name}() {
+      assert_eq!(true, false);
+    }
+  }
+

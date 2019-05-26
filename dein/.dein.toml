@@ -32,7 +32,8 @@ let g:LanguageClient_serverCommands = {
 "      \  'javascript': ['javascript-typescript-stdio'],
       \  'go': ['golsp'],
       \  'ruby': ['solargraph', 'stdio'],
-      \  'python': ['pyls']
+      \  'python': ['pyls'],
+      \  'rust': ['rustup', 'run', 'stable', 'rls']
       \ }
 let g:LanguageClient_loadSettings = 1
 nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
@@ -91,6 +92,7 @@ let g:ale_fixers = {
       \  'typescript': ['prettier', 'prettier-eslint', 'tslint'],
       \  'vue': ['prettier', 'prettier-eslint'],
       \  'python': ['autopep8', 'isort'],
+      \  'rust': ['rustfmt'],
       \  'markdown': [
       \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
       \  ],

@@ -34,12 +34,20 @@ ln -snfv ~/dotfiles/snippets ~/.config/nvim
 # $ brew install fzf
 # $ sh /usr/local/opt/fzf/install
 
-# language-server
+### language-server
 # $ npm install -g vue-language-server
 # $ npm install -g typescript typescript-language-server
 # $ npm install -g javascript-typescript-langserver
 # $ pip3 install python-language-server
 # $ gem install solargraph
+
+# for rust
+# $ rustup update
+# $ rustup component add rls-preview
+# $ rustup component add rust-src
+# $ rustup component add rust-analysis
+# $ rustup component add rustfmt
+
 
 # .gitconfig
 git config --global core.editor nvim
