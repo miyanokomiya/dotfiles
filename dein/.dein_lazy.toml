@@ -90,4 +90,4 @@ nnoremap <silent> <Space>s :KeySeekerClip<CR>
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_func = ['emmet-expand-abbr']
+on_ft = ['html', 'vue', 'xml', 'svg']
