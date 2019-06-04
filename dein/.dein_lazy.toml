@@ -22,6 +22,10 @@ repo = 'posva/vim-vue'
 on_ft = ['vue']
 
 [[plugins]]
+repo = 'digitaltoad/vim-pug'
+on_ft = ['pug', 'vue']
+
+[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
 hook_add = '''
