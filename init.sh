@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ln -snfv ~/dotfiles/.bashrc ~/.bashrc
+ln -snfv ~/dotfiles/.editorconfig ~/.editorconfig
 
 if [ ! -d ~/.cache/dein ]; then
   mkdir -p ~/.cache/dein

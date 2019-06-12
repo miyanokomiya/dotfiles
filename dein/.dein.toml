@@ -233,3 +233,6 @@ nnoremap <Space>hf :History<CR>
 nnoremap <Space>h: :History:<CR>
 nnoremap <Space>h/ :History/<CR>
 '''
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
