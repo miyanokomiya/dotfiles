@@ -39,3 +39,5 @@ HISTSIZE=5000
 
 export PATH=$PATH:$HOME/.deno/bin
 export PATH=$PATH:$HOME/.cargo/bin
+eval "$(direnv hook bash)"
+eval "$(rbenv init -)"
