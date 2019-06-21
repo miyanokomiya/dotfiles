@@ -236,7 +236,6 @@ function! ClipText(data)
   let @*=a:data " ヤンク時と同様にレジスタへ登録
 endfunction
 " カレントファイルパスをヤンク
-" FIXME ３項演算子使わないで書けない？ :call利用だと表示がちらつく
 nnoremap <expr> <C-g> ClipText(expand('%')) ? "" : "\<C-g>"
 
 "--------
