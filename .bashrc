@@ -41,3 +41,8 @@ export PATH=$PATH:$HOME/.deno/bin
 export PATH=$PATH:$HOME/.cargo/bin
 eval "$(direnv hook bash)"
 eval "$(rbenv init -)"
+
+# 環境固有設定用
+if [ -f ~/.bashrc_local ]; then
+  . ~/.bashrc_local
+fi
