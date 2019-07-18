@@ -238,6 +238,14 @@ endfunction
 " カレントファイルパスをヤンク
 nnoremap <expr> <C-g> ClipText(expand('%')) ? "" : "\<C-g>"
 
+" キャメル、スネーク、ケバブ変換
+nnoremap <Space>c viw:s/\%V\(_\\|-\)\(.\)/\u\2/g<CR>
+nnoremap <Space>_ viw:s/\%V\([A-Z]\)/_\l\1/g<CR>
+nnoremap <Space>- viw:s/\%V\([A-Z]\)/-\l\1/g<CR>
+xnoremap <Space>c :s/\%V\(_\\|-\)\(.\)/\u\2/g<CR>
+xnoremap <Space>_ :s/\%V\([A-Z]\)/_\l\1/g<CR>
+xnoremap <Space>- :s/\%V\([A-Z]\)/-\l\1/g<CR>
+
 "--------
 " 自作プラグイン関連
 "--------
