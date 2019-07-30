@@ -9,16 +9,10 @@ eval "$(rbenv init -)"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%}"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_CTRL_T_OPTS='--reverse --border --preview "
+export FZF_CTRL_T_OPTS='--reverse --border --prompt="File > " --preview "
   [[ $(file --mime {}) =~ binary ]] && echo {} is a binary file ||
   (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -100"'
-
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --reverse --border --no-sort +m --query "$LBUFFER" --prompt="History > ")
-  CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
+export FZF_CTRL_R_OPTS='--reverse --border --no-sort --prompt="History > "'
 
 alias e='nvim'
 
