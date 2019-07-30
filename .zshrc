@@ -1,3 +1,9 @@
+export PATH=$PATH:$HOME/.deno/bin
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.rbenv/bin
+eval "$(direnv hook zsh)"
+eval "$(rbenv init -)"
+
 # fzfセットアップ
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
@@ -6,10 +12,9 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_CTRL_T_OPTS='--reverse --border --preview "
   [[ $(file --mime {}) =~ binary ]] && echo {} is a binary file ||
   (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -100"'
-export FZF_CTRL_R_OPTS='--reverse --border'
 
 function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
+  BUFFER=$(history -n -r 1 | fzf --reverse --border --no-sort +m --query "$LBUFFER" --prompt="History > ")
   CURSOR=$#BUFFER
 }
 zle -N select-history
@@ -19,21 +24,15 @@ alias e='nvim'
 
 # history共有
 setopt share_history
-HISTSIZE=5000
-
-export PATH=$PATH:$HOME/.deno/bin
-export PATH=$PATH:$HOME/.cargo/bin
-eval "$(direnv hook zsh)"
-eval "$(rbenv init -)"
-
-# 環境固有設定用
-if [ -f ~/.zshrc_local ]; then
-  . ~/.zshrc_local
-fi
+# history重複無視
+setopt hist_ignore_dups
+SAVEHIST=5000
+HISTFILE=~/.zsh_history
 
 # 補完
 autoload -U compinit
 compinit
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # git表示
 autoload -Uz vcs_info
@@ -51,3 +50,8 @@ precmd () { vcs_info }
 
 PROMPT='%{$fg[red]%}[%c]%{$reset_color%}'
 PROMPT=$PROMPT'${vcs_info_msg_0_}%(1j.[%j].) %{${fg[red]}%}%}$%{${reset_color}%} '
+
+# 環境固有設定用
+if [ -f ~/.zshrc_local ]; then
+  . ~/.zshrc_local
+fi
