@@ -31,6 +31,10 @@ if [ -f ~/.zshrc_local ]; then
   . ~/.zshrc_local
 fi
 
+# 補完
+autoload -U compinit
+compinit
+
 # git表示
 autoload -Uz vcs_info
 autoload -Uz colors # black red green yellow blue magenta cyan white
