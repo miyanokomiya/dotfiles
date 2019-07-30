@@ -33,15 +33,14 @@ autoload -Uz vcs_info
 autoload -Uz colors # black red green yellow blue magenta cyan white
 colors
 
-setopt prompt_subst
-
 zstyle ':vcs_info:git:*' check-for-changes true #formats 設定項目で %c,%u が使用可
 zstyle ':vcs_info:git:*' stagedstr "%F{green}!" #commit されていないファイルがある
 zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}+" #add されていないファイルがある
-zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
+zstyle ':vcs_info:*' formats "%F{cyan}%c%u[%b]%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 precmd () { vcs_info }
 
+setopt prompt_subst
 PROMPT='%{$fg[red]%}[%c]%{$reset_color%}'
 PROMPT=$PROMPT'${vcs_info_msg_0_}%(1j.[%j].) %{${fg[red]}%}%}$%{${reset_color}%} '
 
