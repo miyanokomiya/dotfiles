@@ -49,5 +49,5 @@ zstyle ':vcs_info:*' formats "%F{cyan}%c%u(%b)%f" #通常
 zstyle ':vcs_info:*' actionformats '[%b|%a]' #rebase 途中,merge コンフリクト等 formats 外の表示
 precmd () { vcs_info }
 
-PROMPT='%{$fg[red]%}[%~]%{$reset_color%}'
-PROMPT=$PROMPT'${vcs_info_msg_0_} %{${fg[red]}%}%}$%{${reset_color}%} '
+PROMPT='%{$fg[red]%}[%c]%{$reset_color%}'
+PROMPT=$PROMPT'${vcs_info_msg_0_}%(1j.[%j].) %{${fg[red]}%}%}$%{${reset_color}%} '
