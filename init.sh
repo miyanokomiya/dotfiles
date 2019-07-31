@@ -21,6 +21,9 @@ ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 ln -snfv ~/dotfiles/dict ~/.config/nvim
 ln -snfv ~/dotfiles/snippets ~/.config/nvim
 
+# set up zsh
+# $ brew install zsh zsh-completions
+
 # set up neovim
 # $ sudo mkdir /usr/local/Frameworks
 # $ sudo chown $(whoami):admin /usr/local/Frameworks
