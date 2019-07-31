@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ln -snfv ~/dotfiles/.bashrc ~/.bashrc
+ln -snfv ~/dotfiles/.zshrc ~/.zshrc
 ln -snfv ~/dotfiles/.editorconfig ~/.editorconfig
 
 if [ ! -d ~/.cache/dein ]; then
@@ -20,6 +20,9 @@ ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 ln -snfv ~/dotfiles/dict ~/.config/nvim
 ln -snfv ~/dotfiles/snippets ~/.config/nvim
+
+# set up zsh
+# $ brew install zsh zsh-completions
 
 # set up neovim
 # $ sudo mkdir /usr/local/Frameworks
