@@ -76,9 +76,9 @@ set list
 set listchars=tab:^\ ,trail:~
 " コマンドラインの履歴を10000件保存する
 set history=10000
-" インデント幅
+" タブ
+expandtab
 set shiftwidth=2
-" ファイル内にあるタブ文字の表示幅
 set tabstop=2
 " ツールバーを非表示にする
 set guioptions-=T
@@ -100,8 +100,6 @@ set nofoldenable
 set title
 " 行番号の表示
 set number
-" ヤンクでクリップボードにコピー
-" set clipboard=unnamed,autoselect
 set clipboard+=unnamedplus
 " Escの2回押しでハイライト消去
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR><ESC>
