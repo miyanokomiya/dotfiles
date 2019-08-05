@@ -15,6 +15,9 @@ export FZF_CTRL_T_OPTS='--reverse --border --prompt="File > " --preview "
 export FZF_CTRL_R_OPTS='--reverse --border --no-sort --prompt="History > "'
 
 alias e='nvim'
+alias d='docker'
+alias dc='docker-compose'
+alias g='git'
 
 # history共有
 setopt share_history
