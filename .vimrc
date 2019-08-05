@@ -77,7 +77,7 @@ set listchars=tab:^\ ,trail:~
 " コマンドラインの履歴を10000件保存する
 set history=10000
 " タブ
-expandtab
+set expandtab
 set shiftwidth=2
 set tabstop=2
 " ツールバーを非表示にする
