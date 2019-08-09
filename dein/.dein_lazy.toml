@@ -80,7 +80,7 @@ on_ft = ['markdown','mkd']
 
 [[plugins]]
 repo = "hashivim/vim-terraform"
-on_ft = ['tf']
+on_ft = ['terraform', 'tf', 'tfvars', 'tfstate', 'hcl']
 hook_add = '''
 let g:terraform_fmt_on_save = 1
 '''
