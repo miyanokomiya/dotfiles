@@ -38,6 +38,10 @@ ln -snfv ~/dotfiles/snippets ~/.config/nvim
 # $ brew install fzf
 # $ sh /usr/local/opt/fzf/install
 
+# ghq
+# $ brew install ghq
+git config --global ghq.root ~/ghq
+
 ### language-server
 # $ npm install -g vue-language-server
 # $ npm install -g typescript typescript-language-server
@@ -62,7 +66,6 @@ git config --global alias.gr "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 git config --global alias.gra "log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 git config --global alias.l "log"
 git config --global alias.s "status"
-git config --global ghq.root ~/ghq
 
 # tmux
 ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
