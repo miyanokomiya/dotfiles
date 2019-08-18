@@ -47,6 +47,17 @@ setopt prompt_subst
 PROMPT='%{$fg[red]%}[%c]%{$reset_color%}'
 PROMPT=$PROMPT'${vcs_info_msg_0_}%(1j.[%j].) %{${fg[red]}%}%}$%{${reset_color}%} '
 
+function dev() {
+  moveto=$(ghq root)/$(ghq list | fzf)
+  cd $moveto
+  # rename session if in tmux
+  if [[ ! -z ${TMUX} ]]
+  then
+    repo_name=${moveto##*/}
+    tmux rename-session ${repo_name//./-}
+  fi
+}
+
 # 環境固有設定用
 if [ -f ~/.zshrc_local ]; then
   . ~/.zshrc_local
