@@ -23,6 +23,7 @@ alias g='git'
 setopt share_history
 # history重複無視
 setopt hist_ignore_dups
+HISTSIZE=5000
 SAVEHIST=5000
 HISTFILE=~/.zsh_history
 

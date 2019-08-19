@@ -244,6 +244,9 @@ xnoremap <Space>c :s/\%V\(_\\|-\)\(.\)/\u\2/g<CR>
 xnoremap <Space>_ :s/\%V\([A-Z]\)/_\l\1/g<CR>
 xnoremap <Space>- :s/\%V\([A-Z]\)/-\l\1/g<CR>
 
+" カーソル下の単語に貼り付け
+nnoremap <Space>p ciw<C-r>0<ESC>
+
 "--------
 " 自作プラグイン関連
 "--------
