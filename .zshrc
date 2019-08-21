@@ -4,6 +4,7 @@ export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
 
+######
 # fzfセットアップ
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
@@ -13,6 +14,40 @@ export FZF_CTRL_T_OPTS='--reverse --border --prompt="File > " --preview "
   [[ $(file --mime {}) =~ binary ]] && echo {} is a binary file ||
   (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -100"'
 export FZF_CTRL_R_OPTS='--reverse --border --no-sort --prompt="History > "'
+
+# branch補完
+_fzf_complete_git() {
+  ARGS="$@"
+  local branches
+  branches=$(git branch -vv --all)
+  if [[ $ARGS == 'git co'* ]]; then
+    _fzf_complete "--reverse --border --multi" "$@" < <(
+    echo $branches
+    )
+  else
+    eval "zle ${fzf_default_completion:-expand-or-complete}"
+  fi
+}
+_fzf_complete_git_post() {
+  awk '{print $1}'
+}
+
+# チェックアウト
+fco() {
+  local tags branches target
+  branches=$(
+    git --no-pager branch \
+      --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
+    | sed '/^$/d') || return
+  tags=$(
+    git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
+  target=$(
+    (echo "$branches"; echo "$tags") |
+    fzf --reverse --border --no-hscroll --no-multi -n 2 \
+        --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
+  git checkout $(awk '{print $2}' <<<"$target" )
+}
+######
 
 alias e='nvim'
 alias d='docker'
