@@ -53,6 +53,7 @@ alias e='nvim'
 alias d='docker'
 alias dc='docker-compose'
 alias g='git'
+alias relogin='exec $SHELL -l'
 
 # history共有
 setopt share_history
