@@ -52,6 +52,7 @@ fco() {
 alias e='nvim'
 alias d='docker'
 alias dc='docker-compose'
+alias f='fzf'
 alias g='git'
 alias relogin='exec $SHELL -l'
 
