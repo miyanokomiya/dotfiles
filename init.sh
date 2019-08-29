@@ -44,7 +44,7 @@ git config --global ghq.root ~/ghq
 
 ### language-server
 # $ npm install -g vue-language-server
-# $ npm install -g typescript typescript-language-server
+# $ npm install -g javascript-typescript-langserver
 # $ pip3 install python-language-server
 # $ gem install solargraph
 
