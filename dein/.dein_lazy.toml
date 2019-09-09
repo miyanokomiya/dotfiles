@@ -95,3 +95,7 @@ nnoremap <silent> <Space>s :KeySeekerClip<CR>
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'vue', 'xml', 'svg', 'javascript', 'typescript']
+
+[[plugins]]
+repo = 'andys8/vim-elm-syntax'
+on_ft = ['elm']

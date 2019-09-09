@@ -62,8 +62,8 @@ set shellslash
 set showmatch matchtime=1
 " インデント方法の変更
 set cinoptions+=:0
-" メッセージ表示欄を2行確保
-set cmdheight=2
+" メッセージ表示欄
+set cmdheight=3
 " ステータス行を常に表示
 set laststatus=2
 " ウィンドウの右下にまだ実行していない入力中のコマンドを表示
@@ -246,6 +246,10 @@ xnoremap <Space>- :s/\%V\([A-Z]\)/-\l\1/g<CR>
 
 " カーソル下の単語に貼り付け
 nnoremap <Space>p ciw<C-r>0<ESC>
+
+" マークジャンプコマンド入れ替え
+nnoremap ' `
+nnoremap ` '
 
 "--------
 " 自作プラグイン関連
