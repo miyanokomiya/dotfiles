@@ -30,7 +30,7 @@ let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
       \  'typescript': ['javascript-typescript-stdio'],
       \  'javascript': ['javascript-typescript-stdio'],
-      \  'go': ['golsp'],
+      \  'go': ['gopls'],
       \  'ruby': ['solargraph', 'stdio'],
       \  'python': ['pyls'],
       \  'rust': ['rustup', 'run', 'stable', 'rls'],
@@ -100,6 +100,7 @@ let g:ale_fixers = {
       \  'vue': ['eslint'],
       \  'python': ['autopep8', 'isort'],
       \  'rust': ['rustfmt'],
+      \  'go': ['gofmt'],
       \  'markdown': [
       \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
       \  ],

@@ -47,6 +47,7 @@ git config --global ghq.root ~/ghq
 # $ npm install -g javascript-typescript-langserver
 # $ pip3 install python-language-server
 # $ gem install solargraph
+# $ go get -u golang.org/x/tools/cmd/gopls
 
 # for rust
 # $ rustup update
