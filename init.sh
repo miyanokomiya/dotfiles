@@ -68,6 +68,7 @@ git config --global alias.gra "log --graph --all --pretty=format:'%Cred%h%Creset
 git config --global alias.l "log"
 git config --global alias.lo "log --pretty='format:%C(yellow)%h %C(green)%cd %C(reset)%s %C(red)%d %C(cyan)[%an]' --date=iso"
 git config --global alias.s "status"
+git config --global alias.bc "!f () { git checkout $1; git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d; };f"
 
 # tmux
 ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
