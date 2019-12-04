@@ -37,6 +37,7 @@ repo = 'scrooloose/nerdtree'
 on_cmd = ['NERDTreeToggle']
 hook_add = '''
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :NERDTreeFind<CR>
 let NERDTreeShowHidden = 1
 '''
 
