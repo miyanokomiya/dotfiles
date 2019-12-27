@@ -58,10 +58,12 @@ alias relogin='exec $SHELL -l'
 
 # history共有
 setopt share_history
-# history重複無視
-setopt hist_ignore_dups
-HISTSIZE=5000
-SAVEHIST=5000
+# 重複するコマンドは古い方を削除
+setopt hist_ignore_all_dups
+# 余計なスペース削除
+setopt hist_reduce_blanks
+HISTSIZE=20000
+SAVEHIST=20000
 HISTFILE=~/.zsh_history
 
 # 補完
