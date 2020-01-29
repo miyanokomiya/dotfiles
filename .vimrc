@@ -251,6 +251,9 @@ nnoremap <Space>p ciw<C-r>0<ESC>
 nnoremap ' `
 nnoremap ` '
 
+" commitメッセージの自動改行を抑制
+au FileType gitcommit setlocal tw=200
+
 "--------
 " 自作プラグイン関連
 "--------
