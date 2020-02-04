@@ -98,6 +98,25 @@ function dev() {
   fi
 }
 
+# コマンド開始終了時刻を表示
+export PREV_COMMAND_END_TIME
+export NEXT_COMMAND_BGN_TIME
+
+function show_command_end_time() {
+  PREV_COMMAND_END_TIME=`date "+%H:%M:%S"`
+  RPROMPT="${PREV_COMMAND_END_TIME} -         "
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd show_command_end_time
+
+show_command_begin_time() {
+  NEXT_COMMAND_BGN_TIME=`date "+%H:%M:%S"`
+  RPROMPT="${PREV_COMMAND_END_TIME} - ${NEXT_COMMAND_BGN_TIME}"
+  zle .accept-line
+  zle .reset-prompt
+}
+zle -N accept-line show_command_begin_time
+
 # 環境固有設定用
 if [ -f ~/.zshrc_local ]; then
   . ~/.zshrc_local
