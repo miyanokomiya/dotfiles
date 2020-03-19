@@ -251,6 +251,8 @@ nnoremap <Space>p ciw<C-r>0<ESC>
 nnoremap ' `
 nnoremap ` '
 
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
 " commitメッセージの自動改行を抑制
 au FileType gitcommit setlocal tw=200
 

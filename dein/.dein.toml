@@ -29,14 +29,19 @@ set hidden
 let g:LanguageClient_serverCommands = {
       \  'vue': ['vls'],
       \  'typescript': ['javascript-typescript-stdio'],
+      \  'typescript.tsx': ['javascript-typescript-stdio'],
       \  'javascript': ['javascript-typescript-stdio'],
       \  'go': ['gopls'],
       \  'ruby': ['solargraph', 'stdio'],
       \  'python': ['pyls'],
       \  'rust': ['rustup', 'run', 'stable', 'rls'],
-      \  'elm': ['elm-language-server', '--stdio']
+      \  'elm': ['elm-language-server']
       \ }
 let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_rootMarkers = {
+  \ 'elm': ['elm.json'],
+  \ }
+
 nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
@@ -244,3 +249,6 @@ nnoremap <Space>h/ :History/<CR>
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'ruanyl/vim-gh-line'

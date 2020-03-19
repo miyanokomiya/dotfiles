@@ -22,6 +22,23 @@ snippet scaf_ts
   }
   </script>
 
+snippet scaf_next
+  <script lang="ts">
+  import { PropType, defineComponent, ref, reactive } from 'vue'
+
+  export default defineComponent({
+    props: {
+      obj: { type: Object as PropType<{}>, required: true },
+      arr: { type: Array as PropType<[]>, default: () => [] }
+    },
+    setup(props, ctx) {
+      return {
+        state: props
+      }
+    }
+  })
+  </script>
+
 snippet scaf_style
   <style ${1:lang="scss"} scoped>
   </style>
