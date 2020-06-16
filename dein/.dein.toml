@@ -252,3 +252,9 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'ruanyl/vim-gh-line'
+
+[[plugins]]
+repo = 'bkad/CamelCaseMotion'
+hook_add = '''
+let g:camelcasemotion_key = '<leader>'
+'''
