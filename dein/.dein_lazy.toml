@@ -94,6 +94,13 @@ on_ft = ['markdown','mkd']
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 on_ft = ['markdown','mkd']
+
+# リッチマークダウン
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+build = 'cd app & yarn install'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+
 ################
 
 [[plugins]]
