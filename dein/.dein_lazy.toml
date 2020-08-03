@@ -136,3 +136,7 @@ on_cmd = ['KonbuP']
 [[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['graphql']
+
+[[plugins]]
+repo = 'burner/vim-svelte'
+on_ft = ['svelte']
