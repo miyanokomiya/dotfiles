@@ -1,6 +1,8 @@
 {
   "suggest.snippetIndicator": " ►",
   "suggest.enablePreview": true,
-  "coc.preferences.diagnostic.displayByAle": true,
-  "languageserver": {}
+  "diagnostic.displayByAle": true,
+  "languageserver": {},
+
+  "vetur.useWorkspaceDependencies": true
 }

@@ -24,23 +24,7 @@ repo = "neoclide/coc.nvim"
 merge = 0
 rev = "release"
 hook_add = '''
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+source ~/dotfiles/dein/configs/coc.rc.vim
 '''
 
 [[plugins]]
@@ -52,32 +36,7 @@ let g:float_preview#docked = 0
 [[plugins]]
 repo = 'w0rp/ale'
 hook_add = '''
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '⨉'
-let g:ale_sign_warning = '⚠'
-let g:ale_fixers = {
-      \  'elm': ['elm-format'],
-      \  'json': ['prettier'],
-      \  'html': ['prettier'],
-      \  'css': ['prettier', 'stylelint'],
-      \  'sass': ['prettier', 'stylelint'],
-      \  'scss': ['prettier', 'stylelint'],
-      \  'javascript': ['eslint'],
-      \  'typescript': ['eslint'],
-      \  'vue': ['eslint'],
-      \  'svelte': ['prettier'],
-      \  'python': ['autopep8', 'isort'],
-      \  'rust': ['rustfmt'],
-      \  'go': ['gofmt'],
-      \  'markdown': [
-      \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
-      \  ],
-      \ }
-let g:ale_fix_on_save = 0
-let g:ale_javascript_prettier_use_local_config = 1
-nmap <silent> <Space>p <Plug>(ale_previous_wrap)
-nmap <silent> <Space>n <Plug>(ale_next_wrap)
-nnoremap <Space>f :ALEFix<CR>
+source ~/dotfiles/dein/configs/ale.rc.vim
 '''
 
 [[plugins]]
@@ -165,49 +124,7 @@ map <Space>k <Plug>(easymotion-k)
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
-set rtp+=/usr/local/opt/fzf
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" dotファイルを含める&プレビュー
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
-command! -bang -nargs=* Ag
-  \ call fzf#vim#grep(
-  \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>),
-  \   0, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-
-" floating windowで表示する
-let $FZF_DEFAULT_OPTS='--layout=reverse'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  let height = &lines - 3
-  let width = float2nr(&columns - (&columns * 2 / 10))
-  let col = float2nr((&columns - width) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': 1,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction
-
-nnoremap <C-p> :Files<CR>
-nnoremap <Space>b :Buffers<CR>
-nnoremap <Space>a :Ag<Space>
-nnoremap <Space>m :Marks<CR>
-nnoremap <Space>hf :History<CR>
-nnoremap <Space>h: :History:<CR>
-nnoremap <Space>h/ :History/<CR>
+source ~/dotfiles/dein/configs/fzf.rc.vim
 '''
 
 [[plugins]]
@@ -225,81 +142,5 @@ let g:camelcasemotion_key = '<leader>'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = '''
-nnoremap <silent> <C-n> :<C-u> Defx -search=`expand('%:p')` `getcwd()` <CR>
-
-autocmd FileType defx call s:defx_my_settings()
-function! s:defx_my_settings() abort
-  " Define mappings
-  nnoremap <silent><buffer><expr> <CR>
-  \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> c
-  \ defx#do_action('copy')
-  nnoremap <silent><buffer><expr> m
-  \ defx#do_action('move')
-  nnoremap <silent><buffer><expr> p
-  \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> l
-  \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> E
-  \ defx#do_action('open', 'vsplit')
-  nnoremap <silent><buffer><expr> P
-  \ defx#do_action('preview')
-  nnoremap <silent><buffer><expr> o
-  \ defx#do_action('open_tree', 'toggle')
-  nnoremap <silent><buffer><expr> K
-  \ defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> N
-  \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> M
-  \ defx#do_action('new_multiple_files')
-  nnoremap <silent><buffer><expr> C
-  \ defx#do_action('toggle_columns',
-  \                'mark:indent:icon:filename:type:size:time')
-  nnoremap <silent><buffer><expr> S
-  \ defx#do_action('toggle_sort', 'time')
-  nnoremap <silent><buffer><expr> d
-  \ defx#do_action('remove')
-  nnoremap <silent><buffer><expr> r
-  \ defx#do_action('rename')
-  nnoremap <silent><buffer><expr> !
-  \ defx#do_action('execute_command')
-  nnoremap <silent><buffer><expr> x
-  \ defx#do_action('execute_system')
-  nnoremap <silent><buffer><expr> yy
-  \ defx#do_action('yank_path')
-  nnoremap <silent><buffer><expr> .
-  \ defx#do_action('toggle_ignored_files')
-  nnoremap <silent><buffer><expr> ;
-  \ defx#do_action('repeat')
-  nnoremap <silent><buffer><expr> h
-  \ defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> ~
-  \ defx#do_action('cd')
-  nnoremap <silent><buffer><expr> q
-  \ defx#do_action('quit')
-  nnoremap <silent><buffer><expr> <Space>
-  \ defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *
-  \ defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> j
-  \ line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k
-  \ line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> <C-l>
-  \ defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> <C-g>
-  \ defx#do_action('print')
-  nnoremap <silent><buffer><expr> cd
-  \ defx#do_action('change_vim_cwd')
-endfunction
-
-call defx#custom#option('_', {
-  \ 'winwidth': 40,
-  \ 'split': 'vertical',
-  \ 'direction': 'topleft',
-  \ 'show_ignored_files': 1,
-  \ 'buffer_name': 'exlorer',
-  \ 'toggle': 1,
-  \ 'resume': 1,
-  \ })
+source ~/dotfiles/dein/configs/defx.rc.vim
 '''
