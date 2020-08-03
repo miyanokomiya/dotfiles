@@ -171,6 +171,7 @@ nnoremap <S-g> <S-g>3<C-e>
 
 " vueのシンタックスが消える問題への対処(deinのhookでは効かなかった)
 autocmd FileType vue syntax sync fromstart
+autocmd FileType svelte syntax sync fromstart
 
 " 囲み系操作
 noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
