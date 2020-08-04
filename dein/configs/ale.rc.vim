@@ -21,6 +21,7 @@ let g:ale_fixers = {
   \ }
 let g:ale_fix_on_save = 0
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_disable_lsp = 1
 nmap <silent> <Space>p <Plug>(ale_previous_wrap)
 nmap <silent> <Space>n <Plug>(ale_next_wrap)
 nnoremap <Space>f :ALEFix<CR>

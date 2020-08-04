@@ -1,7 +1,8 @@
 {
   "suggest.snippetIndicator": " ►",
   "suggest.enablePreview": true,
-  "diagnostic.displayByAle": true,
+   // trueだとhoverでdiagnosticが表示されない
+  "diagnostic.displayByAle": false,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
