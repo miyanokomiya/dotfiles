@@ -44,21 +44,6 @@ ln -snfv ~/dotfiles/coc-snippets ~/.config/coc/ultisnips
 # $ brew install ghq
 git config --global ghq.root ~/ghq
 
-### language-server
-# $ npm install -g vue-language-server
-# $ npm install -g javascript-typescript-langserver
-# $ pip3 install python-language-server
-# $ gem install solargraph
-# $ go get -u golang.org/x/tools/cmd/gopls
-
-# for rust
-# $ rustup update
-# $ rustup component add rls-preview
-# $ rustup component add rust-src
-# $ rustup component add rust-analysis
-# $ rustup component add rustfmt
-
-
 # .gitconfig
 git config --global core.editor nvim
 git config --global alias.a "add"
