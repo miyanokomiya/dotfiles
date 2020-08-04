@@ -16,7 +16,7 @@ let g:float_preview#docked = 0
 '''
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = '''
 source ~/dotfiles/dein/configs/ale.rc.vim
 '''
