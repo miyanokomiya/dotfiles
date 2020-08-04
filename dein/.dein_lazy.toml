@@ -75,17 +75,6 @@ augroup END
 repo = 'joker1007/vim-markdown-quote-syntax'
 on_ft = ['markdown','mkd']
 
-# 編集中のMarkdownファイルのプレビューを作成する
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown','mkd']
-
-# プレビューをブラウザで開いてくれる
-# :PrevimOpen
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-on_ft = ['markdown','mkd']
-
 # リッチマークダウン
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
