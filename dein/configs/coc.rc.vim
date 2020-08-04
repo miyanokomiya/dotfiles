@@ -22,3 +22,6 @@ autocmd ColorScheme * highlight CocHighlightText ctermfg=Black ctermbg=darkgreen
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+command! CocSnippets :CocCommand snippets.editSnippets
