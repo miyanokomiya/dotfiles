@@ -18,6 +18,7 @@
     }
   },
   "vetur.useWorkspaceDependencies": true,
+  "vetur.experimental.templateInterpolationService": true,
   "snippets.extends": {
     "typescript": ["javascript"],
     "vue": ["typescript"],
