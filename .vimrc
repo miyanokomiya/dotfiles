@@ -171,6 +171,7 @@ nnoremap <S-g> <S-g>3<C-e>
 
 " vueのシンタックスが消える問題への対処(deinのhookでは効かなかった)
 autocmd FileType vue syntax sync fromstart
+autocmd FileType svelte syntax sync fromstart
 
 " 囲み系操作
 noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
@@ -182,9 +183,6 @@ xnoremap <silent> <C-s>} "zc{}<ESC>"z<S-p>
 xnoremap <silent> <C-s>{ "zc{}<ESC>"z<S-p>
 xnoremap <silent> <C-s>( "zc()<ESC>"z<S-p>
 xnoremap <silent> <C-s>) "zc()<ESC>"z<S-p>
-
-" 選択範囲の前後文字削除
-xnoremap <silent> <C-s>x "zdxX"z<S-p>
 
 " 括弧内での改行
 inoremap <silent> <C-o> <CR><ESC><S-o>
@@ -210,10 +208,6 @@ nnoremap <silent> <Space>t :terminal<CR>i
 " マークダウンで色々消えるので無効化
 set conceallevel=0
 
-" バッファ切替時にカーソル位置復元
-" au BufLeave * let b:winview = winsaveview()
-" au BufEnter * if(exists('b:winview')) | call winrestview(b:winview) | endif
-
 " 保存時にディレクトリを作る
 augroup vimrc-auto-mkdir
   autocmd!
@@ -224,9 +218,6 @@ augroup vimrc-auto-mkdir
     endif
   endfunction
 augroup END
-
-" 辞書登録
-let &dict = join(split(expand("$HOME/.config/nvim/dict/**"), "\n"), ",")
 
 function! ClipText(data)
   let @0=a:data
@@ -243,9 +234,6 @@ nnoremap <Space>- viw:s/\%V\([A-Z]\)/-\l\1/g<CR>
 xnoremap <Space>c :s/\%V\(_\\|-\)\(.\)/\u\2/g<CR>
 xnoremap <Space>_ :s/\%V\([A-Z]\)/_\l\1/g<CR>
 xnoremap <Space>- :s/\%V\([A-Z]\)/-\l\1/g<CR>
-
-" カーソル下の単語に貼り付け
-nnoremap <Space>p ciw<C-r>0<ESC>
 
 " マークジャンプコマンド入れ替え
 nnoremap ' `

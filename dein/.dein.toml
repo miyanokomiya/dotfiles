@@ -2,67 +2,11 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = "neoclide/coc.nvim"
+merge = 0
+rev = "release"
 hook_add = '''
-let g:lightline = {
-      \  'active': {
-      \   'left': [
-      \    ['mode', 'paste'],
-      \    ['readonly', 'filename', 'modified', 'ale'],
-      \    ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
-      \   ]
-      \  },
-      \  'component_function': {
-      \   'ale': 'ALEGetStatusLine'
-      \  }
-      \ }
-set noshowmode
-'''
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-depends = ['fzf.vim']
-hook_add = '''
-set hidden
-let g:LanguageClient_serverCommands = {
-      \  'vue': ['vls'],
-      \  'typescript': ['javascript-typescript-stdio'],
-      \  'typescript.tsx': ['javascript-typescript-stdio'],
-      \  'javascript': ['javascript-typescript-stdio'],
-      \  'go': ['gopls'],
-      \  'ruby': ['solargraph', 'stdio'],
-      \  'python': ['pyls'],
-      \  'rust': ['rustup', 'run', 'stable', 'rls'],
-      \  'elm': ['elm-language-server']
-      \ }
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_rootMarkers = {
-  \ 'elm': ['elm.json'],
-  \ }
-
-nnoremap <silent> gm :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> gl :call LanguageClient_textDocument_documentHighlight()<CR>
-command! -nargs=0 Format :call LanguageClient_textDocument_formatting()
-
-nnoremap <silent> gr :call LanguageClient_textDocument_references_with_FZF()<CR>
-function! LanguageClient_textDocument_references_with_FZF()
-  if g:loaded_fzf && !exists('g:LanguageClient_fzfOptions')
-    let g:LanguageClient_fzfOptions = fzf#vim#with_preview('right:50%', '?').options
-  endif
-  call LanguageClient_textDocument_references()
-endfunction
-'''
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
-hook_add = '''
-let g:deoplete#enable_at_startup = 1
-autocmd CompleteDone * silent! pclose!
+source ~/dotfiles/dein/configs/coc.rc.vim
 '''
 
 [[plugins]]
@@ -72,49 +16,29 @@ let g:float_preview#docked = 0
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
+repo = 'dense-analysis/ale'
 hook_add = '''
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = '$HOME/.config/nvim/snippets/'
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+source ~/dotfiles/dein/configs/ale.rc.vim
 '''
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
-repo = 'w0rp/ale'
+repo = 'itchyny/lightline.vim'
 hook_add = '''
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '⨉'
-let g:ale_sign_warning = '⚠'
-let g:ale_fixers = {
-      \  'elm': ['elm-format'],
-      \  'json': ['prettier'],
-      \  'html': ['prettier'],
-      \  'css': ['prettier', 'stylelint'],
-      \  'sass': ['prettier', 'stylelint'],
-      \  'scss': ['prettier', 'stylelint'],
-      \  'javascript': ['eslint'],
-      \  'typescript': ['eslint'],
-      \  'vue': ['eslint'],
-      \  'python': ['autopep8', 'isort'],
-      \  'rust': ['rustfmt'],
-      \  'go': ['gofmt'],
-      \  'markdown': [
-      \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
-      \  ],
-      \ }
-let g:ale_fix_on_save = 0
-let g:ale_javascript_prettier_use_local_config = 1
-nmap <silent> <Space>p <Plug>(ale_previous_wrap)
-nmap <silent> <Space>n <Plug>(ale_next_wrap)
-nnoremap <Space>f :ALEFix<CR>
+let g:lightline = {
+\  'active': {
+\    'left': [
+\      ['mode', 'paste'],
+\      ['readonly', 'filename', 'modified', 'ale'],
+\      ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
+\      ['coc'],
+\    ],
+\  },
+\  'component_function': {
+\    'ale': 'ALEGetStatusLine',
+\    'coc': 'coc#status',
+\  }
+\}
+set noshowmode
 '''
 
 [[plugins]]
@@ -122,17 +46,17 @@ repo = 'maximbaz/lightline-ale'
 depends = ['lightline.vim', 'ale']
 hook_add = '''
 let g:lightline.component_expand = {
-      \  'linter_checking': 'lightline#ale#checking',
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \  'linter_ok': 'lightline#ale#ok',
-      \ }
+\  'linter_checking': 'lightline#ale#checking',
+\  'linter_warnings': 'lightline#ale#warnings',
+\  'linter_errors': 'lightline#ale#errors',
+\  'linter_ok': 'lightline#ale#ok',
+\}
 let g:lightline.component_type = {
-      \  'linter_checking': 'left',
-      \  'linter_warnings': 'warning',
-      \  'linter_errors': 'error',
-      \  'linter_ok': 'left',
-      \ }
+\  'linter_checking': 'left',
+\  'linter_warnings': 'warning',
+\  'linter_errors': 'error',
+\  'linter_ok': 'left',
+\}
 '''
 
 [[plugins]]
@@ -202,49 +126,7 @@ map <Space>k <Plug>(easymotion-k)
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
-set rtp+=/usr/local/opt/fzf
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" dotファイルを含める&プレビュー
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
-command! -bang -nargs=* Ag
-  \ call fzf#vim#grep(
-  \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>),
-  \   0, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-
-" floating windowで表示する
-let $FZF_DEFAULT_OPTS='--layout=reverse'
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-function! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  let height = &lines - 3
-  let width = float2nr(&columns - (&columns * 2 / 10))
-  let col = float2nr((&columns - width) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': 1,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  call nvim_open_win(buf, v:true, opts)
-endfunction
-
-nnoremap <C-p> :Files<CR>
-nnoremap <Space>b :Buffers<CR>
-nnoremap <Space>a :Ag<Space>
-nnoremap <Space>m :Marks<CR>
-nnoremap <Space>hf :History<CR>
-nnoremap <Space>h: :History:<CR>
-nnoremap <Space>h/ :History/<CR>
+source ~/dotfiles/dein/configs/fzf.rc.vim
 '''
 
 [[plugins]]
@@ -257,4 +139,10 @@ repo = 'ruanyl/vim-gh-line'
 repo = 'bkad/CamelCaseMotion'
 hook_add = '''
 let g:camelcasemotion_key = '<leader>'
+'''
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+source ~/dotfiles/dein/configs/defx.rc.vim
 '''

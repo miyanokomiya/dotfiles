@@ -1,0 +1,27 @@
+{
+  "suggest.snippetIndicator": " ►",
+  "suggest.enablePreview": true,
+  // trueだとhoverでdiagnosticが表示されない
+  "diagnostic.displayByAle": false,
+  "languageserver": {
+    "elmLS": {
+      "command": "elm-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"],
+      "initializationOptions": {
+        "runtime": "node",
+        "elmPath": "elm",
+        "elmFormatPath": "elm-format",
+        "elmTestPath": "elm-test"
+      }
+    }
+  },
+  "vetur.useWorkspaceDependencies": true,
+  "vetur.experimental.templateInterpolationService": true,
+  "snippets.extends": {
+    "typescript": ["javascript"],
+    "vue": ["typescript"],
+    "svelte": ["typescript"]
+  }
+}

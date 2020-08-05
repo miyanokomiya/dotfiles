@@ -49,15 +49,6 @@ hook_add = '''
 let g:rustfmt_autosave = 1
 '''
 
-[[plugins]]
-repo = 'scrooloose/nerdtree'
-on_cmd = ['NERDTreeToggle']
-hook_add = '''
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <Space><C-n> :NERDTreeFind<CR>
-let NERDTreeShowHidden = 1
-'''
-
 [[plugins]] # jsonでダブルクォートが非表示になるのを解消
 repo = 'elzr/vim-json'
 on_ft = ['json']
@@ -82,17 +73,6 @@ augroup END
 # quote内のプログラムをシンタックスハイライトする
 [[plugins]]
 repo = 'joker1007/vim-markdown-quote-syntax'
-on_ft = ['markdown','mkd']
-
-# 編集中のMarkdownファイルのプレビューを作成する
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = ['markdown','mkd']
-
-# プレビューをブラウザで開いてくれる
-# :PrevimOpen
-[[plugins]]
-repo = 'tyru/open-browser.vim'
 on_ft = ['markdown','mkd']
 
 # リッチマークダウン
@@ -136,3 +116,7 @@ on_cmd = ['KonbuP']
 [[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['graphql']
+
+[[plugins]]
+repo = 'burner/vim-svelte'
+on_ft = ['svelte']
