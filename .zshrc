@@ -55,6 +55,7 @@ alias dc='docker-compose'
 alias f='fzf'
 alias g='git'
 alias relogin='exec $SHELL -l'
+alias ls='ls -G -a'
 
 # history共有
 setopt share_history
