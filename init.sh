@@ -19,8 +19,6 @@ ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -snfv ~/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 
 ln -snfv ~/dotfiles/rplugin ~/.config/nvim
-ln -snfv ~/dotfiles/dict ~/.config/nvim
-ln -snfv ~/dotfiles/snippets ~/.config/nvim
 ln -snfv ~/dotfiles/coc-snippets ~/.config/coc/ultisnips
 
 # set up zsh

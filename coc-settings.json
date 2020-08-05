@@ -1,7 +1,7 @@
 {
   "suggest.snippetIndicator": " ►",
   "suggest.enablePreview": true,
-   // trueだとhoverでdiagnosticが表示されない
+  // trueだとhoverでdiagnosticが表示されない
   "diagnostic.displayByAle": false,
   "languageserver": {
     "elmLS": {
@@ -17,5 +17,10 @@
       }
     }
   },
-  "vetur.useWorkspaceDependencies": true
+  "vetur.useWorkspaceDependencies": true,
+  "snippets.extends": {
+    "typescript": ["javascript"],
+    "vue": ["typescript"],
+    "svelte": ["typescript"]
+  }
 }
