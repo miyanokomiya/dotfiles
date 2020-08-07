@@ -226,6 +226,8 @@ function! ClipText(data)
 endfunction
 " カレントファイルパスをヤンク
 nnoremap <expr> <C-g> ClipText(expand('%')) ? "" : "\<C-g>"
+" カレントファイル名をヤンク
+nnoremap <expr> <Space><C-g> ClipText(expand('%:t')) ? "" : "\<C-g>"
 
 " キャメル、スネーク、ケバブ変換
 nnoremap <Space>c viw:s/\%V\(_\\|-\)\(.\)/\u\2/g<CR>
