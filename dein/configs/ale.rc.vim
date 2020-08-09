@@ -15,6 +15,7 @@ let g:ale_fixers = {
   \  'python': ['autopep8', 'isort'],
   \  'rust': ['rustfmt'],
   \  'go': ['gofmt'],
+  \  'dart': ['dartfmt'],
   \  'markdown': [
   \   {buffer, lines -> {'command': 'textlint -c ~/.config/textlintrc -o /dev/null --fix --no-color --quiet %t', 'read_temporary_file': 1}}
   \  ],
