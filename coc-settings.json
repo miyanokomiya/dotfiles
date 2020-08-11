@@ -19,6 +19,7 @@
   },
   "vetur.useWorkspaceDependencies": true,
   "vetur.experimental.templateInterpolationService": true,
+  "flutter.lsp.initialization.closingLabels": false,
   "snippets.extends": {
     "typescript": ["javascript"],
     "vue": ["typescript"],
