@@ -44,6 +44,7 @@ git config --global ghq.root ~/ghq
 
 # .gitconfig
 git config --global core.editor nvim
+git config pull.rebase false
 git config --global alias.a "add"
 git config --global alias.b "branch"
 git config --global alias.c "commit -v"

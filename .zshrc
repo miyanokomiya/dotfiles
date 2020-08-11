@@ -122,3 +122,5 @@ zle -N accept-line show_command_begin_time
 if [ -f ~/.zshrc_local ]; then
   . ~/.zshrc_local
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
