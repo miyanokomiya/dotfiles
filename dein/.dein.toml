@@ -107,6 +107,13 @@ hook_add = '''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+hook_add = '''
+nnoremap <Leader>gh :Gbrowse<CR>
+vnoremap <Leader>gh :Gbrowse<CR>
+'''
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -131,9 +138,6 @@ source ~/dotfiles/dein/configs/fzf.rc.vim
 
 [[plugins]]
 repo = 'editorconfig/editorconfig-vim'
-
-[[plugins]]
-repo = 'ruanyl/vim-gh-line'
 
 [[plugins]]
 repo = 'bkad/CamelCaseMotion'
