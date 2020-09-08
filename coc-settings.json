@@ -21,8 +21,9 @@
   "vetur.experimental.templateInterpolationService": true,
   "flutter.lsp.initialization.closingLabels": false,
   "snippets.extends": {
+    "scss": ["css"],
     "typescript": ["javascript"],
-    "vue": ["html", "typescript"],
+    "vue": ["scss", "html", "typescript"],
     "svelte": ["typescript"]
   }
 }
