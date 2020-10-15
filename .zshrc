@@ -59,8 +59,6 @@ alias ls='ls -G -a'
 
 # history共有
 setopt share_history
-# 重複するコマンドは古い方を削除
-setopt hist_ignore_all_dups
 # 余計なスペース削除
 setopt hist_reduce_blanks
 HISTSIZE=20000
