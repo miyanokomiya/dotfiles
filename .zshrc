@@ -47,6 +47,35 @@ fco() {
         --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
   git checkout $(awk '{print $2}' <<<"$target" )
 }
+
+# https://petitviolet.hatenablog.com/entry/20190708/1562544000
+# git statusで対象となるファイルのgit diffみながらファイルを選択する
+function select_file_from_git_status() {
+  git status -u --short | \
+    fzf -m --ansi --reverse --preview 'f() {
+      local original=$@
+      set -- $(echo "$@");
+      if [ $(echo $original | grep -E "^M" | wc -l) -eq 1 ]; then # staged
+        git diff --color --cached $2
+      elif [ $(echo $original | grep -E "^\?\?" | wc -l) -eq 0 ]; then # unstaged
+        git diff --color $2
+      elif [ -d $2 ]; then # directory
+        ls -la $2
+      else
+        git diff --color --no-index /dev/null $2 # untracked
+      fi
+    }; f {}' |\
+    awk -F ' ' '{print $NF}' |
+    tr '\n' ' '
+}
+# ↑の関数で選んだファイルを入力バッファに入れる
+function insert_selected_git_files(){
+    LBUFFER+=$(select_file_from_git_status)
+    CURSOR=$#LBUFFER
+    zle reset-prompt
+}
+zle -N insert_selected_git_files
+bindkey "^g" insert_selected_git_files
 ######
 
 alias e='nvim'
