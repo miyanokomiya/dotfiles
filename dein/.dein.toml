@@ -131,6 +131,10 @@ map <Space>k <Plug>(easymotion-k)
 '''
 
 [[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+
+[[plugins]]
 repo = 'junegunn/fzf.vim'
 hook_add = '''
 source ~/dotfiles/dein/configs/fzf.rc.vim
