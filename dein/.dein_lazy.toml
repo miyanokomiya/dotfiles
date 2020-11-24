@@ -80,7 +80,6 @@ on_ft = ['markdown','mkd']
 repo = 'iamcco/markdown-preview.nvim'
 build = 'cd app & yarn install'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-
 ################
 
 [[plugins]]

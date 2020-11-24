@@ -26,13 +26,13 @@
 
 snippet describe "describe()" b
 describe('${1}', () => {
-  ${2}
+	${2}
 })
 endsnippet
 
 snippet it "it()" b
 it('${1}', () => {
-  ${2}
+	${2}
 })
 endsnippet
 
@@ -42,4 +42,13 @@ endsnippet
 
 snippet eslint-disable-next-line "eslint-disable-next-line" b
 eslint-disable-next-line
+endsnippet
+
+snippet each "each()" b
+it.each([[1, 1, 2], [1, 2, 3], [2, 1, 3]])(
+	'add(%s, %s) => %s',
+	(a, b, expected) => {
+		expect(a + b).toBe(expected);
+	},
+);
 endsnippet
