@@ -49,9 +49,9 @@ fco() {
 }
 
 # https://petitviolet.hatenablog.com/entry/20190708/1562544000
-# git statusで対象となるファイルのgit diffみながらファイルを選択する
+# git statusでunstagedなファイルのdiffみながらファイル選択
 function select_file_from_git_status() {
-  git status -u --short | \
+  git status -u --short | grep -v ^M | \
     fzf -m --ansi --reverse --preview 'f() {
       local original=$@
       set -- $(echo "$@");
