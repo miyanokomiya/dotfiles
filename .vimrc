@@ -223,11 +223,12 @@ function! ClipText(data)
   let @0=a:data
   let @"=a:data
   let @*=a:data " ヤンク時と同様にレジスタへ登録
+  echo "clip: ".a:data
 endfunction
-" カレントファイルパスをヤンク
-nnoremap <expr> <C-g> ClipText(expand('%')) ? "" : "\<C-g>"
+" カレントファイルパスをヤンク（workspaceからのパス）
+nnoremap <expr> <C-g> ClipText(fnamemodify(expand("%"), ":~:."))
 " カレントファイル名をヤンク
-nnoremap <expr> <Space><C-g> ClipText(expand('%:t')) ? "" : "\<C-g>"
+nnoremap <expr> <Space><C-g> ClipText(expand('%:t'))
 
 " キャメル、スネーク、ケバブ変換
 nnoremap <Space>c viw:s/\%V\(_\\|-\)\(.\)/\u\2/g<CR>
