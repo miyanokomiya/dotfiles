@@ -4,6 +4,8 @@ export PATH=$PATH:$HOME/.rbenv/bin
 eval "$(direnv hook zsh)"
 eval "$(rbenv init -)"
 
+bindkey -r "^g"
+
 ######
 # fzfセットアップ
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -15,25 +17,8 @@ export FZF_CTRL_T_OPTS='--reverse --border --prompt="File > " --preview "
   (highlight -O ansi -l {} || coderay {} || rougify {} || cat {}) 2> /dev/null | head -100"'
 export FZF_CTRL_R_OPTS='--reverse --border --no-sort --prompt="History > "'
 
-# branch補完
-_fzf_complete_git() {
-  ARGS="$@"
-  local branches
-  branches=$(git branch -vv --all)
-  if [[ $ARGS == 'git co'* ]]; then
-    _fzf_complete "--reverse --border --multi" "$@" < <(
-    echo $branches
-    )
-  else
-    eval "zle ${fzf_default_completion:-expand-or-complete}"
-  fi
-}
-_fzf_complete_git_post() {
-  awk '{print $1}'
-}
-
-# チェックアウト
-fco() {
+# branch取得
+function select_branch() {
   local tags branches target
   branches=$(
     git --no-pager branch \
@@ -45,7 +30,20 @@ fco() {
     (echo "$branches"; echo "$tags") |
     fzf --reverse --border --no-hscroll --no-multi -n 2 \
         --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
-  git checkout $(awk '{print $2}' <<<"$target" )
+  awk '{print $2}' <<<"$target" | tr '\n' ' '
+}
+function insert_selected_git_branch(){
+  LBUFFER+=$(select_branch)
+  CURSOR=$#LBUFFER
+  zle reset-prompt
+}
+zle -N insert_selected_git_branch
+bindkey "^gb" insert_selected_git_branch
+
+# checkout
+function fco(){
+  target=$(select_branch) || return
+  git checkout $(awk '{print $1}' <<<"$target" )
 }
 
 # https://petitviolet.hatenablog.com/entry/20190708/1562544000
