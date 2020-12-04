@@ -78,7 +78,7 @@ bindkey "^gs" insert_selected_git_files
 
 # git logからcommitを取得
 select_commit_from_git_log() {
-  git log -n1000 --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |\
+  git log -n1000 --graph $1 --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |\
     fzf -m --ansi --no-sort --reverse --tiebreak=index --preview 'f() {
       set -- $(echo "$@" | grep -o "[a-f0-9]\{7\}" | head -1);
       if [ $1 ]; then
@@ -90,13 +90,20 @@ select_commit_from_git_log() {
     grep -o "[a-f0-9]\{7\}" |
     tr '\n' ' '
 }
-function insert_selected_git_logs(){
+function insert_selected_git_log(){
     LBUFFER+=$(select_commit_from_git_log)
     CURSOR=$#LBUFFER
     zle reset-prompt
 }
-zle -N insert_selected_git_logs
-bindkey "^gl" insert_selected_git_logs
+zle -N insert_selected_git_log
+bindkey "^gl" insert_selected_git_log
+function insert_selected_git_log_all(){
+    LBUFFER+=$(select_commit_from_git_log '--all')
+    CURSOR=$#LBUFFER
+    zle reset-prompt
+}
+zle -N insert_selected_git_log_all
+bindkey "^go" insert_selected_git_log_all
 ######
 
 alias e='nvim'
