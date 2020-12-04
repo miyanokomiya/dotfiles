@@ -21,7 +21,7 @@ export FZF_CTRL_R_OPTS='--reverse --border --no-sort --prompt="History > "'
 function select_branch() {
   local tags branches target
   branches=$(
-    git --no-pager branch \
+    git --no-pager branch $1 \
       --format="%(if)%(HEAD)%(then)%(else)%(if:equals=HEAD)%(refname:strip=3)%(then)%(else)%1B[0;34;1mbranch%09%1B[m%(refname:short)%(end)%(end)" \
     | sed '/^$/d') || return
   tags=$(
@@ -30,7 +30,7 @@ function select_branch() {
     (echo "$branches"; echo "$tags") |
     fzf --reverse --border --no-hscroll --no-multi -n 2 \
         --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
-  awk '{print $2}' <<<"$target" | tr '\n' ' '
+  awk '{print $2}' <<<"$target" | tr -d '\n'
 }
 function insert_selected_git_branch(){
   LBUFFER+=$(select_branch)
@@ -43,7 +43,15 @@ bindkey "^gb" insert_selected_git_branch
 # checkout
 function fco(){
   target=$(select_branch) || return
-  git checkout $(awk '{print $1}' <<<"$target" )
+  git checkout $target
+}
+function fcor(){
+  target=$(select_branch '-r') || return
+  git checkout $(echo $target | sed "s/origin\///")
+}
+function fcoa(){
+  target=$(select_branch '-ra') || return
+  git checkout $(echo $target | sed "s/origin\///")
 }
 
 # https://petitviolet.hatenablog.com/entry/20190708/1562544000
@@ -67,9 +75,9 @@ function select_file_from_git_status() {
     tr '\n' ' '
 }
 function insert_selected_git_files(){
-    LBUFFER+=$(select_file_from_git_status)
-    CURSOR=$#LBUFFER
-    zle reset-prompt
+  LBUFFER+=$(select_file_from_git_status)
+  CURSOR=$#LBUFFER
+  zle reset-prompt
 }
 zle -N insert_selected_git_files
 bindkey "^gs" insert_selected_git_files
@@ -89,16 +97,16 @@ select_commit_from_git_log() {
     tr '\n' ' '
 }
 function insert_selected_git_log(){
-    LBUFFER+=$(select_commit_from_git_log)
-    CURSOR=$#LBUFFER
-    zle reset-prompt
+  LBUFFER+=$(select_commit_from_git_log)
+  CURSOR=$#LBUFFER
+  zle reset-prompt
 }
 zle -N insert_selected_git_log
 bindkey "^gl" insert_selected_git_log
 function insert_selected_git_log_all(){
-    LBUFFER+=$(select_commit_from_git_log '--all')
-    CURSOR=$#LBUFFER
-    zle reset-prompt
+  LBUFFER+=$(select_commit_from_git_log '--all')
+  CURSOR=$#LBUFFER
+  zle reset-prompt
 }
 zle -N insert_selected_git_log_all
 bindkey "^go" insert_selected_git_log_all
