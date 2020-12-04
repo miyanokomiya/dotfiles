@@ -78,7 +78,7 @@ bindkey "^gs" insert_selected_git_files
 
 # git logからcommitを取得
 select_commit_from_git_log() {
-  git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |\
+  git log -n1000 --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |\
     fzf -m --ansi --no-sort --reverse --tiebreak=index --preview 'f() {
       set -- $(echo "$@" | grep -o "[a-f0-9]\{7\}" | head -1);
       if [ $1 ]; then
