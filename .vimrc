@@ -224,6 +224,7 @@ function! ClipText(data)
   let @"=a:data
   let @*=a:data " ヤンク時と同様にレジスタへ登録
   echo "clip: ".a:data
+  return "\<ESC>" " returnなしだとカーソルが行頭に移動してしまう
 endfunction
 " カレントファイルパスをヤンク（workspaceからのパス）
 nnoremap <expr> <C-g> ClipText(fnamemodify(expand("%"), ":~:."))
