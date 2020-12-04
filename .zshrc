@@ -68,14 +68,35 @@ function select_file_from_git_status() {
     awk -F ' ' '{print $NF}' |
     tr '\n' ' '
 }
-# ↑の関数で選んだファイルを入力バッファに入れる
 function insert_selected_git_files(){
     LBUFFER+=$(select_file_from_git_status)
     CURSOR=$#LBUFFER
     zle reset-prompt
 }
 zle -N insert_selected_git_files
-bindkey "^g" insert_selected_git_files
+bindkey "^gs" insert_selected_git_files
+
+# git logからcommitを取得
+select_commit_from_git_log() {
+  git log --graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |\
+    fzf -m --ansi --no-sort --reverse --tiebreak=index --preview 'f() {
+      set -- $(echo "$@" | grep -o "[a-f0-9]\{7\}" | head -1);
+      if [ $1 ]; then
+        git show --color $1
+      else
+        echo "blank"
+      fi
+    }; f {}' |\
+    grep -o "[a-f0-9]\{7\}" |
+    tr '\n' ' '
+}
+function insert_selected_git_logs(){
+    LBUFFER+=$(select_commit_from_git_log)
+    CURSOR=$#LBUFFER
+    zle reset-prompt
+}
+zle -N insert_selected_git_logs
+bindkey "^gl" insert_selected_git_logs
 ######
 
 alias e='nvim'
