@@ -57,7 +57,7 @@ function fcoa(){
 # https://petitviolet.hatenablog.com/entry/20190708/1562544000
 # git statusでunstagedなファイルのdiffみながらファイル選択
 function select_file_from_git_status() {
-  git status -u --short | grep -v ^M | \
+  git status -u --short | grep -v ^M | grep -v ^A | grep -v ^D |\
     fzf -m --ansi --reverse --preview 'f() {
       local original=$@
       set -- $(echo "$@");
