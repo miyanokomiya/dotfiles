@@ -28,9 +28,9 @@ function select_branch() {
     git --no-pager tag | awk '{print "\x1b[35;1mtag\x1b[m\t" $1}') || return
   target=$(
     (echo "$branches"; echo "$tags") |
-    fzf --reverse --border --no-hscroll --no-multi -n 2 \
+    fzf -m --reverse --border --no-hscroll -n 2 \
         --ansi --preview="git --no-pager log -150 --pretty=format:%s '..{2}'") || return
-  awk '{print $2}' <<<"$target" | tr -d '\n'
+  awk '{print $2}' <<<"$target" | tr '\n' ' '
 }
 function insert_selected_git_branch(){
   LBUFFER+=$(select_branch)
