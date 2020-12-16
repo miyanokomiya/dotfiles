@@ -43,7 +43,7 @@ bindkey "^gb" insert_selected_git_branch
 # checkout
 function fco(){
   target=$(select_branch) || return
-  git checkout $target
+  git checkout $(echo $target | sed 's/ $//')
 }
 function fcor(){
   target=$(select_branch '-r') || return
