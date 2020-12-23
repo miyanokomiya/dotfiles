@@ -160,6 +160,18 @@ function dev() {
   fi
 }
 
+# branchに対応したPRを開く
+function pr-open () {
+  local url
+  url=$(hub pr list -h "$(git symbolic-ref --short HEAD)" -f "%U")
+  if [[ -z $url ]]
+  then
+    echo "The PR based this branch not found."
+    return 1
+  fi
+  open "$url"
+}
+
 # コマンド開始終了時刻を表示
 export PREV_COMMAND_END_TIME
 export NEXT_COMMAND_BGN_TIME
