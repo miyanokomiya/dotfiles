@@ -172,6 +172,15 @@ function pr-open () {
   open "$url"
 }
 
+# current branch名挿入
+function current_branch_name(){
+  LBUFFER+=$(git symbolic-ref --short HEAD)
+  CURSOR=$#LBUFFER
+  zle reset-prompt
+}
+zle -N current_branch_name
+bindkey "^g^g" current_branch_name
+
 # コマンド開始終了時刻を表示
 export PREV_COMMAND_END_TIME
 export NEXT_COMMAND_BGN_TIME
