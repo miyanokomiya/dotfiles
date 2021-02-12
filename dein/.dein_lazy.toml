@@ -17,25 +17,11 @@ let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 '''
 
-# [[plugins]]
-# repo = 'posva/vim-vue'
-# on_ft = ['vue']
-# hook_add = '''
-# let g:vue_pre_processors = 'detect_on_enter'
-# '''
-
 [[plugins]]
-repo = 'leafoftree/vim-vue-plugin'
+repo = 'posva/vim-vue'
 on_ft = ['vue']
 hook_add = '''
-let g:vim_vue_plugin_highlight_vue_attr = 1
-let g:vim_vue_plugin_use_sass = 1
-let g:vim_vue_plugin_use_typescript = 1
-let g:vim_vue_plugin_use_pug = 0
-nnoremap <silent> <buffer> [[ :call search('^<\(template\<Bar>script\<Bar>style\)', 'bW')<CR>
-nnoremap <silent> <buffer> ]] :call search('^<\(template\<Bar>script\<Bar>style\)', 'W')<CR>
-nnoremap <silent> <buffer> [] :call search('^</\(template\<Bar>script\<Bar>style\)', 'bW')<CR>
-nnoremap <silent> <buffer> ][ :call search('^</\(template\<Bar>script\<Bar>style\)', 'W')<CR>
+let g:vue_pre_processors = 'detect_on_enter'
 '''
 
 [[plugins]]
@@ -54,17 +40,6 @@ repo = 'elzr/vim-json'
 on_ft = ['json']
 hook_add = '''
 let g:vim_json_syntax_conceal = 0
-'''
-
-[[plugins]]
-repo = 'leafgarland/typescript-vim'
-on_ft = ['typescript']
-hook_add = '''
-augroup FiletypeGroup
-    autocmd!
-    " .ts is a Typescript file
-    au BufNewFile,BufRead *.ts set filetype=typescript
-augroup END
 '''
 
 ################
