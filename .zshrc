@@ -160,6 +160,25 @@ function dev() {
   fi
 }
 
+# 辞書（wordnetが必要）
+function fold {
+  if [ $# -eq 0 ]; then
+    /usr/bin/fold -w $COLUMNS -s
+  else
+    /usr/bin/fold $*
+  fi
+}
+function spell {
+  cat /usr/share/dict/words | fzf --preview 'wn {} -over | fold' --preview-window=up:60%
+}
+function dic {
+  if [ $# -eq 0 ]; then
+    wn `spell` -over | fold
+  else
+    wn $1 -over | fold
+  fi
+}
+
 # branchに対応したPRを開く
 function pr-open () {
   local url
