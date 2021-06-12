@@ -25,6 +25,6 @@
     "scss": ["css"],
     "typescript": ["javascript"],
     "vue": ["scss", "html", "typescript"],
-    "svelte": ["typescript"]
+    "svelte": ["scss", "html", "typescript"]
   }
 }
