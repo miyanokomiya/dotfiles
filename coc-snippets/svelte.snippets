@@ -35,3 +35,11 @@ snippet scaffold "scaffold for svelte" b
 <style lang="scss">
 </style>
 endsnippet
+
+snippet if_svelte b
+{#if ${1}}${2}{/if}
+endsnippet
+
+snippet each_svelte b
+{#each ${1:item} as ${2:items}}${3}{/if}
+endsnippet
