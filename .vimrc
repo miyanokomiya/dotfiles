@@ -245,8 +245,15 @@ nnoremap ` '
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
+" 単語を入力し直す => 補完を呼び出したい
+nnoremap <Space>y ciw<C-r>"
+
 " commitメッセージの自動改行を抑制
 au FileType gitcommit setlocal tw=200
+
+" 現在日付入力
+inoremap <C-r>d <C-R>=strftime("%Y-%m-%d")<CR>
+inoremap <C-r><C-d> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
 "--------
 " 自作プラグイン関連
