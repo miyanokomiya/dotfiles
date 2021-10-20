@@ -255,6 +255,13 @@ au FileType gitcommit setlocal tw=200
 inoremap <C-r>d <C-R>=strftime("%Y-%m-%d")<CR>
 inoremap <C-r><C-d> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
+" 検索ワード貼り付け(関数経由でないとなぜかうまくいかず)
+function! PasteSearchWord()
+  return substitute(@/, '\\<\|\\>', '', 'g')
+endfunction
+inoremap <expr> <C-r>? PasteSearchWord()
+
+
 "--------
 " 自作プラグイン関連
 "--------
