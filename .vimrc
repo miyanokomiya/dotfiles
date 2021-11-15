@@ -35,7 +35,6 @@ endif
 "----------------------------------------
 " 基本設定
 "----------------------------------------
-lang en_US.UTF-8
 set number
 set nowritebackup
 set nobackup
@@ -261,6 +260,12 @@ function! PasteSearchWord()
 endfunction
 inoremap <expr> <C-r>? PasteSearchWord()
 
+" Hide healthcheck warnings
+let g:loaded_python_provider = 0
+let g:loaded_perl_provider = 0
+
+" Jump to Backlog's git
+command! Backlog exe "!gitb browse show %\\#" . line('.')
 
 "--------
 " 自作プラグイン関連

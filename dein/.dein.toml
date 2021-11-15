@@ -108,8 +108,8 @@ hook_add = '''
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
-nnoremap <Leader>gh :Gbrowse<CR>
-vnoremap <Leader>gh :Gbrowse<CR>
+nnoremap <Leader>gh :GBrowse<CR>
+vnoremap <Leader>gh :GBrowse<CR>
 '''
 
 [[plugins]]
@@ -153,4 +153,10 @@ let g:camelcasemotion_key = '<leader>'
 repo = 'Shougo/defx.nvim'
 hook_add = '''
 source ~/dotfiles/dein/configs/defx.rc.vim
+'''
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+hook_add = '''
+vnoremap <Leader>p ::PrettierPartial<CR>
 '''
