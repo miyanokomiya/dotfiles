@@ -265,8 +265,7 @@ let g:loaded_python_provider = 0
 let g:loaded_perl_provider = 0
 
 " Jump to Backlog's git
-command! Backlog exe "!gitb browse show %\\#" . line('.')
-
+command! -range Backlog exe "!gitb browse show %\\#" . (<line1> == <line2> ? <line1> : <line1> . "-" . <line2>)
 "--------
 " 自作プラグイン関連
 "--------
