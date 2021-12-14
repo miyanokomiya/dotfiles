@@ -49,6 +49,7 @@ set hlsearch
 set hidden
 set pyxversion=3
 set completeopt=noselect,menuone
+set isfname
 
 "----------------------------------------
 " 表示設定
