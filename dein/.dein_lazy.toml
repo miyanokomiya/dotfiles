@@ -98,7 +98,3 @@ on_ft = ['svelte']
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 on_ft = ['dart']
-
-[[plugins]]
-repo = 'ryym/vim-riot'
-on_ft = ['tag']
