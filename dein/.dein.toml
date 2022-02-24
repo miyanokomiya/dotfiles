@@ -110,6 +110,7 @@ repo = 'tpope/vim-fugitive'
 hook_add = '''
 nnoremap <Leader>gh :GBrowse<CR>
 vnoremap <Leader>gh :GBrowse<CR>
+nnoremap <Space>g :Git<Space>
 '''
 
 [[plugins]]
