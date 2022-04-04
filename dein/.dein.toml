@@ -153,6 +153,7 @@ let g:camelcasemotion_key = '<leader>'
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
+let g:fern#default_hidden=1
 nnoremap <C-n> :Fern . -reveal=% -drawer -toggle<CR>
 '''
 
