@@ -74,6 +74,10 @@ nnoremap <silent> <Space>s :KeySeekerClip<CR>
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'vue', 'xml', 'svg', 'javascript', 'typescript', 'svelte']
+hook_add = '''
+let g:user_emmet_leader_key='<C-y>'
+let g:user_emmet_mode = 'iv'
+'''
 
 [[plugins]]
 repo = 'andys8/vim-elm-syntax'
