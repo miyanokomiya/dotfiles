@@ -56,3 +56,11 @@ endsnippet
 snippet clone "clone()" b
 JSON.parse(JSON.stringify(${1}))
 endsnippet
+
+snippet clone "try()" b
+try {
+	throw new Error('debug');
+} catch (e) {
+	console.log(e);
+}
+endsnippet
