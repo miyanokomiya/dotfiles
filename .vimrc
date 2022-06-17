@@ -62,9 +62,7 @@ set shellslash
 set showmatch matchtime=1
 " インデント方法の変更
 set cinoptions+=:0
-" メッセージ表示欄
-set cmdheight=3
-" ステータス行を常に表示
+set cmdheight=2
 set laststatus=2
 " ウィンドウの右下にまだ実行していない入力中のコマンドを表示
 set showcmd
