@@ -33,3 +33,18 @@ export default defineComponent({
 })
 </script>
 endsnippet
+
+snippet script_setup "script setup" b
+<script setup lang="ts">
+import { withDefaults } from 'vue'
+
+const props = withDefaults(
+	defineProps<{ value?: boolean }>(),
+	{ value: false }
+)
+
+const emits = defineEmits<{
+	(e: 'update:value', val: boolean): void
+}>()
+</script>
+endsnippet
