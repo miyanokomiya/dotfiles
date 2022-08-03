@@ -110,6 +110,28 @@ function insert_selected_git_log_all(){
 }
 zle -N insert_selected_git_log_all
 bindkey "^go" insert_selected_git_log_all
+
+# Get git stash id
+select_id_from_git_stash() {
+  git stash list -n1000 |\
+    fzf -m --ansi --no-sort --reverse --tiebreak=index --preview 'f() {
+      set -- $(echo "$@" | grep -o "stash@{[0-9]\{1,\}}" | head -1);
+      if [ $1 ]; then
+        git stash show -p $1
+      else
+        echo "blank"
+      fi
+    }; f {}' |\
+    grep -o "[0-9]\{1,\}" |
+    tr '\n' ' '
+}
+function insert_selected_git_stash(){
+  LBUFFER+=$(select_id_from_git_stash)
+  CURSOR=$#LBUFFER
+  zle reset-prompt
+}
+zle -N insert_selected_git_stash
+bindkey "^gt" insert_selected_git_stash
 ######
 
 alias e='nvim'
