@@ -146,6 +146,7 @@ repo = 'antoinemadec/coc-fzf'
 branch = 'release'
 hook_add = '''
 let g:coc_fzf_preview = 'right:50%'
+let g:coc_fzf_opts = ['--layout=reverse']
 '''
 
 [[plugins]]
