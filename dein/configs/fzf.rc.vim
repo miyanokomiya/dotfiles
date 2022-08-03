@@ -6,7 +6,10 @@ let g:fzf_action = {
 " dotファイルを含める&プレビュー
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'source': 'ag --hidden --ignore .git -g ""'}), <bang>0)
-command! -bang -nargs=* Ag
+
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+command! -bang -nargs=* Agrep
   \ call fzf#vim#grep(
   \   'ag --column --color --hidden --ignore .git '.shellescape(<q-args>),
   \   0, fzf#vim#with_preview('right:50%', '?'), <bang>0)
@@ -35,7 +38,8 @@ endfunction
 
 nnoremap <C-p> :Files<CR>
 nnoremap <Space>b :Buffers<CR>
-nnoremap <Space>a :Ag<Space>
+nnoremap <Space>A :Ag<CR>
+nnoremap <Space>a :Agrep<Space>
 nnoremap <Space>m :Marks<CR>
 nnoremap <Space>hf :History<CR>
 nnoremap <Space>h: :History:<CR>

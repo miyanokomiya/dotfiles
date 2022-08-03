@@ -142,6 +142,13 @@ source ~/dotfiles/dein/configs/fzf.rc.vim
 '''
 
 [[plugins]]
+repo = 'antoinemadec/coc-fzf'
+branch = 'release'
+hook_add = '''
+let g:coc_fzf_preview = 'right:50%'
+'''
+
+[[plugins]]
 repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
