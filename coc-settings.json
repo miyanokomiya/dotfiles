@@ -1,6 +1,6 @@
 {
   "suggest.snippetIndicator": " ►",
-  "suggest.enablePreview": true,
+  "suggest.noselect": true,
   // trueだとhoverでdiagnosticが表示されない
   "diagnostic.displayByAle": false,
   "languageserver": {

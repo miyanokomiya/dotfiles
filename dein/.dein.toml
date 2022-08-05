@@ -97,12 +97,13 @@ repo = 'w0ng/vim-hybrid'
 hook_add = '''
   set background=dark
   autocmd ColorScheme * highlight LineNr ctermfg=239<Paste>
-  " colorscheme 設定は source 後に行う必要があるので VimEnter で行う。
-  " 但し Colorscheme イベントの発生が抑制されないよう nented を付ける。
+  " 'colorscheme' has to be set after 'source' => au 'VimEnter'
   augroup MyAutoCmd
     autocmd!
   augroup END
   au MyAutoCmd VimEnter * nested colorscheme hybrid
+  " For coc suggest.floatConfig
+  au MyAutoCmd VimEnter * nested highlight CocMenuSel ctermbg=19 guibg=#222222
 '''
 
 [[plugins]]
@@ -162,6 +163,7 @@ let g:camelcasemotion_key = '<leader>'
 repo = 'lambdalisue/fern.vim'
 hook_add = '''
 let g:fern#default_hidden=1
+let g:fern_disable_startup_warnings=1
 nnoremap <C-n> :Fern . -reveal=% -drawer -toggle<CR>
 '''
 
