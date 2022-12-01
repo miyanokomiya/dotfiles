@@ -36,6 +36,15 @@ function! FloatingFZF()
   call nvim_open_win(buf, v:true, opts)
 endfunction
 
+" Require `wordnet`
+function! DictionaryFZF()
+  return fzf#vim#complete({
+    \   'source': 'cat /usr/share/dict/words',
+    \   'options': ['-i',
+    \               '--preview', 'wn {} -over',
+    \               '--preview-window', 'up:60%']})
+endfunction
+
 nnoremap <C-p> :Files<CR>
 nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>A :Ag<CR>
@@ -44,3 +53,4 @@ nnoremap <Space>m :Marks<CR>
 nnoremap <Space>hf :History<CR>
 nnoremap <Space>h: :History:<CR>
 nnoremap <Space>h/ :History/<CR>
+inoremap <expr> <c-x><c-k> DictionaryFZF()
