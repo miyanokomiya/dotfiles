@@ -42,7 +42,8 @@ function! DictionaryFZF()
     \   'source': 'cat /usr/share/dict/words',
     \   'options': ['-i',
     \               '--preview', 'wn {} -over',
-    \               '--preview-window', 'up:60%']})
+    \               '--preview-window', 'right:50%'],
+    \   'window': 'call FloatingFZF()'})
 endfunction
 
 nnoremap <C-p> :Files<CR>
