@@ -47,6 +47,7 @@ function! DictionaryFZF()
 endfunction
 
 nnoremap <C-p> :Files<CR>
+nnoremap <Space><C-p> :GFiles?<CR>
 nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>A :Ag<CR>
 nnoremap <Space>a :Agrep<Space>
