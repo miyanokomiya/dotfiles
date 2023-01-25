@@ -125,6 +125,10 @@ set updatetime=250
 
 [[plugins]]
 repo = 'justinmk/vim-sneak'
+hook_add = '''
+nmap <Space>S <Plug>Sneak_S
+xmap <Space>S <Plug>Sneak_S
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf'
