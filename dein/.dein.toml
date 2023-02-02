@@ -100,10 +100,10 @@ hook_add = '''
   " 'colorscheme' has to be set after 'source' => au 'VimEnter'
   augroup MyAutoCmd
     autocmd!
+    autocmd VimEnter * nested colorscheme hybrid
+    " For coc suggest.floatConfig
+    autocmd VimEnter * nested highlight CocMenuSel ctermbg=19 guibg=#222222
   augroup END
-  au MyAutoCmd VimEnter * nested colorscheme hybrid
-  " For coc suggest.floatConfig
-  au MyAutoCmd VimEnter * nested highlight CocMenuSel ctermbg=19 guibg=#222222
 '''
 
 [[plugins]]

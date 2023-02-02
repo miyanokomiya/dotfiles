@@ -110,16 +110,14 @@ set mouse=a
 " カーソル行強調
 set cursorline
 
-" 編集箇所のカーソルを記憶
-if has("autocmd")
-  augroup redhat
-    " When editing a file, always jump to the last cursor position
-    autocmd BufReadPost *
-    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-    \   exe "normal! g'\"" |
-    \ endif
-  augroup END
-endif
+augroup MySaveCursor
+  autocmd!
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        \   exe "normal! g'\"" |
+        \ endif
+augroup END
 
 " インデント
 filetype plugin indent on
