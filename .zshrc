@@ -3,7 +3,6 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.rbenv/bin
 export PATH=$PATH:$HOME/go/bin
 eval "$(direnv hook zsh)"
-eval "$(rbenv init -)"
 
 bindkey -r "^g"
 
