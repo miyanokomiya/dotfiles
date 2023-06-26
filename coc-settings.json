@@ -1,7 +1,6 @@
 {
   "suggest.snippetIndicator": " ►",
   "suggest.noselect": true,
-  // trueだとhoverでdiagnosticが表示されない
   "diagnostic.displayByAle": false,
   "languageserver": {
     "elmLS": {
@@ -26,5 +25,6 @@
     "typescript": ["javascript"],
     "vue": ["scss", "html", "typescript"],
     "svelte": ["scss", "html", "typescript"]
-  }
+  },
+  "zig.zls.path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls"
 }
