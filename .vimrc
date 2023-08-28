@@ -260,7 +260,6 @@ inoremap <expr> <C-r>? PasteSearchWord()
 
 " Move to next/previous capital letter
 nmap <silent> <Space>w :call search('[A-Z]', 'W')<CR>
-nmap <silent> <Space>b :call search('[A-Z]', 'Wb')<CR>
 
 " Hide healthcheck warnings
 let g:loaded_python_provider = 0
