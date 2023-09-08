@@ -20,6 +20,7 @@
   "vetur.useWorkspaceDependencies": true,
   "vetur.experimental.templateInterpolationService": true,
   "flutter.lsp.initialization.closingLabels": false,
+  "snippets.userSnippetsDirectory": "~/.config/coc/ultisnips",
   "snippets.extends": {
     "scss": ["css"],
     "typescript": ["javascript"],
