@@ -27,5 +27,6 @@
     "vue": ["scss", "html", "typescript"],
     "svelte": ["scss", "html", "typescript"]
   },
-  "zig.zls.path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls"
+  "zig.zls.path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls",
+  "snippets.ultisnips.pythonPrompt": false
 }
