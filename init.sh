@@ -57,6 +57,7 @@ git config --global alias.lo "log --pretty='format:%C(yellow)%h %C(green)%cd %C(
 git config --global alias.pc "pull --rebase origin $(git rev-parse --abbrev-ref HEAD)"
 git config --global alias.s "status"
 git config --global alias.bc "!f () { git checkout $1; git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d; };f"
+git config --global alias.dry-merge "merge --no-commit --no-ff"
 
 # tmux
 ln -snfv ~/dotfiles/.tmux.conf ~/.tmux.conf
