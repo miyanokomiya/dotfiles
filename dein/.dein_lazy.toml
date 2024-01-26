@@ -25,10 +25,6 @@ let g:vue_pre_processors = 'detect_on_enter'
 '''
 
 [[plugins]]
-repo = 'digitaltoad/vim-pug'
-on_ft = ['pug', 'vue']
-
-[[plugins]]
 repo = 'rust-lang/rust.vim'
 on_ft = 'rust'
 hook_add = '''
@@ -102,3 +98,10 @@ on_ft = ['svelte']
 [[plugins]]
 repo = 'dart-lang/dart-vim-plugin'
 on_ft = ['dart']
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
+on_event = 'BufRead'
+hook_post_update = 'TSUpdate'
+hook_source = 'source ~/dotfiles/treesitter-settings.lua'
