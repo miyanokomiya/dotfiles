@@ -95,14 +95,14 @@ endfunction
 '''
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
+repo = 'sainnhe/everforest'
 hook_add = '''
   set background=dark
   autocmd ColorScheme * highlight LineNr ctermfg=239<Paste>
   " 'colorscheme' has to be set after 'source' => au 'VimEnter'
   augroup MyAutoCmd
     autocmd!
-    autocmd VimEnter * nested colorscheme hybrid
+    autocmd VimEnter * nested colorscheme everforest
     " For coc suggest.floatConfig
     autocmd VimEnter * nested highlight CocMenuSel ctermbg=19 guibg=#222222
   augroup END
