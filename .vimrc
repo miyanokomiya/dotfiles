@@ -169,31 +169,11 @@ nnoremap <S-g> <S-g>3<C-e>
 autocmd FileType vue syntax sync fromstart
 autocmd FileType svelte syntax sync fromstart
 
-" 囲み系操作
-noremap <silent> <C-s>' "zc''<ESC>"z<S-p>
-xnoremap <silent> <C-s>" "zc""<ESC>"z<S-p>
-xnoremap <silent> <C-s>` "zc``<ESC>"z<S-p>
-xnoremap <silent> <C-s>] "zc[]<ESC>"z<S-p>
-xnoremap <silent> <C-s>[ "zc[]<ESC>"z<S-p>
-xnoremap <silent> <C-s>} "zc{}<ESC>"z<S-p>
-xnoremap <silent> <C-s>{ "zc{}<ESC>"z<S-p>
-xnoremap <silent> <C-s>( "zc()<ESC>"z<S-p>
-xnoremap <silent> <C-s>) "zc()<ESC>"z<S-p>
-
 " 括弧内での改行
 inoremap <silent> <C-o> <CR><ESC><S-o>
 
 " terminalモードでもESCでノーマルになりたい
 tnoremap <silent> <ESC> <C-\><C-n>
-
-" 前回ファイルを開く
-command! OL :e `=v:oldfiles[0]`
-command! OLV :e `=v:oldfiles[1]` | :vs `=v:oldfiles[0]`
-command! OLS :e `=v:oldfiles[1]` | :sp `=v:oldfiles[0]`
-
-" カレント行周辺を上部ウィンドウに分割表示
-nnoremap <silent> <C-w>u <C-w>s100<C-w>-5<C-w>+<C-w>j
-nnoremap <silent> <C-w>U <C-w>k<C-w>q
 
 " 前のバッファにトグル
 nnoremap <silent> <Space><Tab> <C-^>zz
