@@ -219,6 +219,13 @@ xnoremap <Space>- :s/\%V\([A-Z]\)/-\l\1/g<CR>
 nnoremap ' `
 nnoremap ` '
 
+" Mark the yank position
+augroup mark_yank_position
+  au!
+  au TextYankPost * normal mY
+augroup END
+nnoremap Y 'Y
+
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 autocmd BufNewFile,BufRead *.tag set filetype=html
 
