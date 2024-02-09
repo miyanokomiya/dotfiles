@@ -227,7 +227,7 @@ augroup END
 nnoremap Y 'Y
 
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-autocmd BufNewFile,BufRead *.tag set filetype=html
+autocmd BufNewFile,BufRead *.tag,*.riot set filetype=html
 
 " 単語を入力し直す => 補完を呼び出したい
 nnoremap <Space>y ciw<C-r>"
