@@ -181,9 +181,6 @@ nnoremap <silent> <Space><Tab> <C-^>zz
 " terminalショートカット
 nnoremap <silent> <Space>t :terminal<CR>i
 
-" マークダウンで色々消えるので無効化
-set conceallevel=0
-
 " 保存時にディレクトリを作る
 augroup vimrc-auto-mkdir
   autocmd!

@@ -60,15 +60,6 @@ let g:lightline.component_type = {
 '''
 
 [[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add = '''
-let g:indentLine_char = '|'
-let g:indentLine_color_term = 239
-let g:vim_json_conceal=0
-let g:markdown_syntax_conceal=0
-'''
-
-[[plugins]]
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
 let g:NERDSpaceDelims = 1
