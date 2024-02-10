@@ -222,7 +222,10 @@ nnoremap ` '
 " Mark the yank position
 augroup mark_yank_position
   au!
-  au TextYankPost * normal mY
+  au TextYankPost *
+        \ if tolower(v:event.operator) == "y" |
+        \   exe "normal mY" |
+        \ endif
 augroup END
 nnoremap Y 'Y
 
