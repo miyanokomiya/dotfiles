@@ -178,6 +178,9 @@ tnoremap <silent> <ESC> <C-\><C-n>
 " 前のバッファにトグル
 nnoremap <silent> <Space><Tab> <C-^>zz
 
+" Delete all buffers but current
+nnoremap <C-w>b :%bd\|e#\|bd#<CR>
+
 " terminalショートカット
 nnoremap <silent> <Space>t :terminal<CR>i
 
