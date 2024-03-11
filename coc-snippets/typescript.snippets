@@ -27,23 +27,23 @@
 snippet describe "describe()" b
 describe('${1}', () => {
 	${2}
-})
+});
 endsnippet
 
 snippet it "it()" b
-it('${1}', () => {
+it("${1}", () => {
 	${2}
-})
+});
 endsnippet
 
 snippet test "test()" b
-test('${1}', () => {
+test("${1}", () => {
 	${2}
-})
+});
 endsnippet
 
 snippet loop "loop()" b
-[...Array(${1:3})].map((_, i) => ${2})
+[...Array(${1:3})].map((_, i) => ${2});
 endsnippet
 
 snippet eslint-disable-next-line "eslint-disable-next-line" b
@@ -52,7 +52,7 @@ endsnippet
 
 snippet each "each()" b
 it.each([[1, 1, 2], [1, 2, 3], [2, 1, 3]])(
-	'add(%s, %s) => %s',
+	"add(%s, %s) => %s",
 	(a, b, expected) => {
 		expect(a + b).toBe(expected);
 	},
@@ -60,12 +60,12 @@ it.each([[1, 1, 2], [1, 2, 3], [2, 1, 3]])(
 endsnippet
 
 snippet clone "clone()" b
-JSON.parse(JSON.stringify(${1}))
+JSON.parse(JSON.stringify(${1}));
 endsnippet
 
 snippet try "try()" b
 try {
-	throw new Error('debug');
+	throw new Error("debug");
 } catch (e) {
 	console.log(e);
 }
