@@ -17,6 +17,7 @@
     }
   },
   "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.useAliasesForRenames": false,
   "vetur.useWorkspaceDependencies": true,
   "vetur.experimental.templateInterpolationService": true,
   "flutter.lsp.initialization.closingLabels": false,
