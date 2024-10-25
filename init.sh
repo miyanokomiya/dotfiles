@@ -18,7 +18,6 @@ mkdir -p ~/.config/nvim
 ln -snfv ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -snfv ~/dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 
-ln -snfv ~/dotfiles/rplugin ~/.config/nvim
 # should exec `rm ~/.config/coc/ultisnips` before
 ln -snfv ~/dotfiles/coc-snippets ~/.config/coc/ultisnips
 
