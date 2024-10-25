@@ -29,5 +29,6 @@
     "svelte": ["scss", "html", "typescript"]
   },
   "zig.zls.path": "~/.config/coc/extensions/coc-zls-data/zls_install/zls",
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
+  "Lua.diagnostics.globals": ["vim"]
 }

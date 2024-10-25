@@ -261,9 +261,9 @@ command! -range Backlog exe "!gitb browse show %\\#" . (<line1> == <line2> ? <li
 " 自作プラグイン関連
 "--------
 
-" ブロック単位ジャンプ
-nnoremap <silent> <C-k> :BlockJumpUp<CR>
-nnoremap <silent> <C-j> :BlockJumpDown<CR>
-xnoremap <silent> <C-k> <ESC>:BlockJumpUp<CR>m>gv
-xnoremap <silent> <C-j> <ESC>:BlockJumpDown<CR>m>gv
+" Jump to previous/next block based on indent
+nnoremap <silent> <C-k> :IndentJumpUp<CR>
+nnoremap <silent> <C-j> :IndentJumpDown<CR>
+xnoremap <silent> <C-k> <ESC>:IndentJumpUp<CR>m>gv
+xnoremap <silent> <C-j> <ESC>:IndentJumpDown<CR>m>gv
 "--------

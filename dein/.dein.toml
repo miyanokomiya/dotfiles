@@ -163,3 +163,6 @@ repo = 'prettier/vim-prettier'
 hook_add = '''
 vnoremap <Leader>p ::PrettierPartial<CR>
 '''
+
+[[plugins]]
+repo = '~/dotfiles/plugins/indentjump.nvim'

@@ -28,15 +28,15 @@ class MyPlugin(object):
         start_r, start_c, end_r, end_c = nvim_utils.get_visual_pos(self.nvim)
         return nvim_utils.get_text(self.nvim, start_r, start_c, end_r, end_c)
 
-    @neovim.command('BlockJumpUp', range='', nargs='0', sync=True)
-    def block_jump_up(self, args, range):
-        r, c = self.get_pre_block()
-        nvim_utils.set_cursor_pos(self.nvim, r, c)
+    # @neovim.command('BlockJumpUp', range='', nargs='0', sync=True)
+    # def block_jump_up(self, args, range):
+    #     r, c = self.get_pre_block()
+    #     nvim_utils.set_cursor_pos(self.nvim, r, c)
 
-    @neovim.command("BlockJumpDown", range='', nargs='0', sync=True)
-    def block_jump_down(self, args, range):
-        r, c = self.get_next_block()
-        nvim_utils.set_cursor_pos(self.nvim, r, c)
+    # @neovim.command("BlockJumpDown", range='', nargs='0', sync=True)
+    # def block_jump_down(self, args, range):
+    #     r, c = self.get_next_block()
+    #     nvim_utils.set_cursor_pos(self.nvim, r, c)
 
     def get_next_block(self):
         cursor_r, cursor_c = nvim_utils.get_cursor_pos(self.nvim)
