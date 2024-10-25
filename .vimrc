@@ -262,8 +262,8 @@ command! -range Backlog exe "!gitb browse show %\\#" . (<line1> == <line2> ? <li
 "--------
 
 " Jump to previous/next block based on indent
-nnoremap <silent> <C-k> :IndentJumpUp<CR>
-nnoremap <silent> <C-j> :IndentJumpDown<CR>
+noremap <silent> <C-k> :IndentJumpUp<CR>
+noremap <silent> <C-j> :IndentJumpDown<CR>
 xnoremap <silent> <C-k> <ESC>:IndentJumpUp<CR>m>gv
 xnoremap <silent> <C-j> <ESC>:IndentJumpDown<CR>m>gv
 "--------
