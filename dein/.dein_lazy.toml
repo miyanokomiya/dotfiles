@@ -31,41 +31,21 @@ hook_add = '''
 let g:rustfmt_autosave = 1
 '''
 
-[[plugins]] # jsonでダブルクォートが非表示になるのを解消
+[[plugins]]
 repo = 'elzr/vim-json'
 on_ft = ['json']
 hook_add = '''
 let g:vim_json_syntax_conceal = 0
 '''
 
-################
-### Markdown ###
-################
-# quote内のプログラムをシンタックスハイライトする
 [[plugins]]
 repo = 'joker1007/vim-markdown-quote-syntax'
 on_ft = ['markdown','mkd']
 
-# リッチマークダウン
 [[plugins]]
 repo = 'iamcco/markdown-preview.nvim'
 build = 'cd app & yarn install'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-################
-
-[[plugins]]
-repo = "hashivim/vim-terraform"
-on_ft = ['terraform', 'tf', 'tfvars', 'tfstate', 'hcl']
-hook_add = '''
-let g:terraform_fmt_on_save = 1
-'''
-
-[[plugins]]
-repo = 'miyanokomiya/key-seeker.nvim'
-on_cmd = ['KeySeekerClip', 'KeySeekerDig']
-hook_add = '''
-nnoremap <silent> <Space>s :KeySeekerClip<CR>
-'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
@@ -76,28 +56,12 @@ let g:user_emmet_mode = 'iv'
 '''
 
 [[plugins]]
-repo = 'andys8/vim-elm-syntax'
-on_ft = ['elm']
-
-[[plugins]]
-repo = 'slim-template/vim-slim'
-on_ft = ['slim']
-
-[[plugins]]
-repo = 'miyanokomiya/konbu.nvim'
-on_cmd = ['KonbuP']
-
-[[plugins]]
 repo = 'jparise/vim-graphql'
 on_ft = ['graphql']
 
 [[plugins]]
 repo = 'burner/vim-svelte'
 on_ft = ['svelte']
-
-[[plugins]]
-repo = 'dart-lang/dart-vim-plugin'
-on_ft = ['dart']
 
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
