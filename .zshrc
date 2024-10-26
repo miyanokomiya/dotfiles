@@ -181,7 +181,8 @@ function dev() {
   fi
 }
 
-# 辞書（wordnetが必要）
+# Requires "wordnet" to look up word meanings
+# When "/usr/share/dict/words: No such file or directory" happens, install "wamerican"
 function fold {
   if [ $# -eq 0 ]; then
     /usr/bin/fold -w $COLUMNS -s
