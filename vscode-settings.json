@@ -4,16 +4,6 @@
   },
   "editor.minimap.enabled": false,
   "vim.useSystemClipboard": true,
-  "vim.insertModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<C-p>"],
-      "after": ["<Up>"]
-    },
-    {
-      "before": ["<C-n>"],
-      "after": ["<Down>"]
-    }
-  ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-p>"],
