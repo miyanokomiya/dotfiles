@@ -4,6 +4,8 @@
   },
   "editor.minimap.enabled": false,
   "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.searchHighlightColor": "#ffff88",
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-p>"],
