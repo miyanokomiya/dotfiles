@@ -1,7 +1,4 @@
 {
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "editor.minimap.enabled": false,
   "vim.useSystemClipboard": true,
   "vim.hlsearch": true,
@@ -14,6 +11,40 @@
     {
       "before": ["<C-[>", "<C-[>"],
       "commands": [":nohlsearch"]
+    },
+    {
+      "before": ["\\", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["<S-k>"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.referenceSearch.trigger"]
+    },
+    {
+      "before": ["<Space>", "f"],
+      "commands": ["editor.action.formatDocument"]
+    },
+    {
+      "before": ["<Space>", "tab"],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
+    },
+    {
+      "before": ["<Space>", "b"],
+      "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
     }
-  ]
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
