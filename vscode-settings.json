@@ -29,6 +29,14 @@
       "commands": ["editor.action.formatDocument"]
     },
     {
+      "before": ["<Space>", "n"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<Space>", "p"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
       "before": ["<Space>", "tab"],
       "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
     },
