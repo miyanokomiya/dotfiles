@@ -37,6 +37,10 @@
       "commands": ["editor.action.marker.prev"]
     },
     {
+      "before": ["<C-g>"],
+      "commands": ["copyRelativeFilePath"]
+    },
+    {
       "before": ["<Space>", "tab"],
       "commands": ["workbench.action.quickOpenPreviousRecentlyUsedEditor"]
     },
