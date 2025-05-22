@@ -25,3 +25,8 @@ nmap <leader>rn <Plug>(coc-rename)
 
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 command! CocSnippets :CocCommand snippets.editSnippets
+
+" Accept selected completion item or notify coc.nvim to format
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#confirm():
+      \ "\<C-y>"
