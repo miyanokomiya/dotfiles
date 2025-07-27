@@ -198,7 +198,8 @@ augroup END
 function! ClipText(data)
   let @0=a:data
   let @"=a:data
-  let @*=a:data " ヤンク時と同様にレジスタへ登録
+  let @*=a:data
+  let @+=a:data
   echo "clip: ".a:data
   return "\<ESC>" " returnなしだとカーソルが行頭に移動してしまう
 endfunction
