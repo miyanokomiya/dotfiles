@@ -19,9 +19,7 @@ command! -bang -nargs=* Agrep
 let $FZF_DEFAULT_OPTS="--layout=reverse
                       \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
                       \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
-                      \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
-                      \shift-up:preview-top,shift-down:preview-bottom,
-                      \alt-up:half-page-up,alt-down:half-page-down"
+                      \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
 
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 function! FloatingFZF()
