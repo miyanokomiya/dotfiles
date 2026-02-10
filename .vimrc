@@ -258,6 +258,26 @@ let g:loaded_perl_provider = 0
 
 " Jump to Backlog's git
 command! -range Backlog exe "!gitb browse show %\\#" . (<line1> == <line2> ? <line1> : <line1> . "-" . <line2>)
+
+" Get Github permalink for selected range
+function! GetGithubPermalink() range
+    " 1. Get the remote URL and clean it up
+    let l:remote = system("git config --get remote.origin.url | sed 's/git@github.com:/https:\\/\\/github.com\\//' | sed 's/\\.git$//' | tr -d '\\n'")
+    " 2. Get the current commit hash (more reliable than branch for permalinks)
+    let l:rev = system("git rev-parse HEAD | tr -d '\\n'")
+    " 3. Get the file path relative to the git root
+    let l:file = system("git ls-files --full-name " . expand('%') . " | tr -d '\\n'")
+    " 4. Build the URL with line numbers
+    let l:url = l:remote . "/blob/" . l:rev . "/" . l:file . "#L" . a:firstline
+    if a:firstline != a:lastline
+        let l:url .= "-L" . a:lastline
+    endif
+    " 5. Copy to clipboard and print
+    let @+ = l:url
+    echo "Permalink copied to clipboard: " . l:url
+endfunction
+command! -range GithubLink <line1>,<line2>call GetGithubPermalink()
+
 "--------
 " 自作プラグイン関連
 "--------
