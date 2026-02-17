@@ -9,7 +9,7 @@ bindkey -r "^g"
 # fzfセットアップ
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
-export FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --bind ctrl-y:preview-up,ctrl-e:preview-down,ctrl-b:preview-page-up,ctrl-f:preview-page-down,ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down"
+export FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} --bind ctrl-k:preview-up,ctrl-j:preview-down"
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_CTRL_T_OPTS='--reverse --border --prompt="File > " --preview "
   [[ $(file --mime {}) =~ binary ]] && echo {} is a binary file ||
