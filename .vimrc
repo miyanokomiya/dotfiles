@@ -207,6 +207,8 @@ endfunction
 nnoremap <expr> <C-g> ClipText(fnamemodify(expand("%"), ":~:."))
 " カレントファイル名をヤンク
 nnoremap <expr> <Space><C-g> ClipText(expand('%:t'))
+" Yank visual selection as filepath:line range
+xnoremap <expr> <C-g> ClipText(fnamemodify(expand('%'), ':~:.') . ':' . min([line('v'), line('.')]) . (line('v') != line('.') ? '-' . max([line('v'), line('.')]) : ''))
 
 " キャメル、スネーク、ケバブ変換
 nnoremap <Space>c viw:s/\%V\(_\\|-\)\(.\)/\u\2/g<CR>
