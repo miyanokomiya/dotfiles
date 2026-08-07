@@ -171,11 +171,18 @@ PROMPT='%{$fg[red]%}[%c]%{$reset_color%}'
 PROMPT=$PROMPT'${vcs_info_msg_0_}%(1j.[%j].) %{${fg[red]}%}%}$%{${reset_color}%} '
 
 function dev() {
-  moveto=$(ghq root)/$(ghq list | fzf)
+  local no_rename=0
+  while [[ $# -gt 0 ]]; do
+    case $1 in
+      -n|--no-rename) no_rename=1; shift ;;
+      *) break ;;
+    esac
+  done
+  local selected=$(ghq list | fzf)
+  [[ -z $selected ]] && return
+  moveto=$(ghq root)/$selected
   cd $moveto
-  # rename session if in tmux
-  if [[ ! -z ${TMUX} ]]
-  then
+  if [[ ! -z ${TMUX} ]] && [[ $no_rename -eq 0 ]]; then
     repo_name=${moveto##*/}
     tmux rename-session ${repo_name//./-}
   fi
@@ -247,3 +254,10 @@ if [ -f ~/.zshrc_local ]; then
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# bun completions
+[ -s "/Users/tomoyakomiyama/.bun/_bun" ] && source "/Users/tomoyakomiyama/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
